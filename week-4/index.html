@@ -3,20 +3,47 @@
   <head>
     <title>HTML Template</title>
     <style>
+      button {
+        width: 90vw;
+        height: 20vh;
+      }
+
       button:hover {
-        color: red;
+        color: #ff0000;
       }
 
       button:focus-visible {
-        color: blue;
+        color: rgb(0, 0, 255);
       }
 
       li:nth-child(odd) {
-        color: orange;
+        color: rgb(255, 166, 0);
+      }
+
+      .a-div {
+        background-color: lightseagreen;
+        padding: 20px;
       }
 
       .a-div::after {
         content: "This is after content. My content does not exist in HTML";
+        background-color: rgb(255, 255, 255, 0.2);
+      }
+
+      .b-div {
+        margin-top: 20px;
+        padding: 30px;
+        width: 500px;
+        height: 500px;
+        background-color: #000000;
+        color: #fff;
+      }
+
+      .b-div-child {
+        color: #000;
+        background-color: #f8f8f8;
+        width: 50%;
+        height: 50%;
       }
     </style>
   </head>
@@ -30,5 +57,9 @@
       <li>Item 5</li>
     </ul>
     <div class="a-div">This is DIV content</div>
+    <div class="b-div">
+      This outer text
+      <div class="b-div-child">This is content of nested div</div>
+    </div>
   </body>
 </html>
