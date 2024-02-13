@@ -40,15 +40,39 @@
         left: 100px;
       }
 
+      .text-center {
+        text-align: center;
+      }
+
+      .open-modal-button {
+        color: #fff;
+        background-color: rgb(112, 112, 205);
+        padding: 10px 50px;
+        border: 3px solid rgb(0, 0, 0, 0.1);
+        transition: all ease-in-out 1s;
+      }
+
+      .open-modal-button:hover {
+        letter-spacing: 10px;
+        border-radius: 30px;
+        background-color: black;
+        border-color: rgb(112, 112, 205);
+      }
+
       .modal {
+        display: none;
         background-color: #fff;
         z-index: 10000;
         position: fixed;
-        top: 50px;
+        top: 30px;
         left: calc((100vw - 450px) / 2);
         width: 450px;
         border-radius: 20px;
         box-shadow: 0 0 30px rgb(0, 0, 0, 0.4);
+      }
+
+      .modal.visible {
+        display: block;
       }
 
       .modal-header {
@@ -82,6 +106,9 @@
     </style>
   </head>
   <body>
+    <div class="text-center">
+      <button class="open-modal-button">Open Modal</button>
+    </div>
     <div class="modal">
       <div class="modal-header">
         <div class="modal-title">My modal title</div>
@@ -238,5 +265,18 @@
         amet, varius justo.
       </div>
     </div>
+    <script>
+      const modal = document.querySelector('.modal');
+      const openModalButton = document.querySelector('.open-modal-button');
+      const closeModalButton = document.querySelector('.close-button');
+
+      openModalButton.addEventListener('click', function () {
+        modal.classList.add('visible');
+      });
+
+      closeModalButton.addEventListener('click', function () {
+        modal.classList.remove('visible');
+      });
+    </script>
   </body>
 </html>
