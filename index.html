@@ -26,56 +26,57 @@
         const structure = {
           items: [
             {
-              root: "week-1",
+              root: 'week-1',
               items: [
-                { name: "Task", file: "index.html" },
-                { name: "Homework", file: "homework-1.html" },
+                { name: 'Task', file: 'index.html' },
+                { name: 'Homework', file: 'homework-1.html' },
               ],
             },
             {
-              root: "week-2",
+              root: 'week-2',
               items: [
-                { name: "Task", file: "index.html" },
-                { name: "Homework 1", file: "homework-1.html" },
-                { name: "Homework 2", file: "homework-2.html" },
-                { name: "Homework 3", file: "homework-3.html" },
+                { name: 'Task', file: 'index.html' },
+                { name: 'Homework 1', file: 'homework-1.html' },
+                { name: 'Homework 2', file: 'homework-2.html' },
+                { name: 'Homework 3', file: 'homework-3.html' },
               ],
             },
             {
-              root: "week-3",
+              root: 'week-3',
               items: [
-                { name: "Task 1", file: "index.html" },
-                { name: "Task 2", file: "index-2.html" },
-                { name: "Homework 1", file: "homework-1.html" },
-                { name: "Homework 2", file: "homework-2.html" },
-                { name: "Homework 3", file: "homework-3.html" },
+                { name: 'Task 1', file: 'index.html' },
+                { name: 'Task 2', file: 'index-2.html' },
+                { name: 'Homework 1', file: 'homework-1.html' },
+                { name: 'Homework 2', file: 'homework-2.html' },
+                { name: 'Homework 3', file: 'homework-3.html' },
               ],
             },
             {
-              root: "week-4",
+              root: 'week-4',
               items: [
-                { name: "Task 1", file: "index.html" },
-                { name: "Task 2", file: "index-2.html" },
-                { name: "Homework 1", file: "homework-1.html" },
-                { name: "Homework 2", file: "homework-2.html" },
-                { name: "Homework 3", file: "homework-3.html" },
+                { name: 'Task 1', file: 'index.html' },
+                { name: 'Task 2', file: 'index-2.html' },
+                { name: 'Task 3', file: 'index-3.html' },
+                { name: 'Homework 1', file: 'homework-1.html' },
+                { name: 'Homework 2', file: 'homework-2.html' },
+                { name: 'Homework 3', file: 'homework-3.html' },
               ],
             },
           ],
         };
 
-        const $wrapper = $("#content");
+        const $wrapper = $('#content');
 
         structure.items.forEach((item, index) => {
           const $itemEl = $('<div class="my-3" />');
 
           if (index < structure.items.length - 1) {
-            $itemEl.addClass("border-bottom border-light");
+            $itemEl.addClass('border-bottom border-light');
           }
 
           $itemEl.append(`<h4>${item.root.toUpperCase()}</h4>`);
 
-          const $itemContentList = $("<ul />");
+          const $itemContentList = $('<ul />');
 
           item &&
             item.items.forEach((listItem) => {
