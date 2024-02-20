@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Week 5</title>
+  </head>
+  <body>
+    <script>
+      let firstName = 'Jack';
+      let lastName = 'Vo';
+      let age = 40;
+      let isHandsome = true;
+      let summary =
+        'My name is ' +
+        firstName +
+        ' ' +
+        lastName +
+        ', I am ' +
+        age +
+        ' years old and I am handsome? ' +
+        isHandsome;
+
+      console.log(summary);
+
+      summary = `My name is ${firstName} ${lastName}, I am ${age} years old and I am handsome? ${isHandsome}`;
+
+      console.log(summary);
+
+      function createSummary(firstName, lastName, age, isHandsome) {
+        summary = `My name is ${firstName} ${lastName}, I am ${age} years old and I am handsome? ${isHandsome}`;
+
+        return summary;
+      }
+
+      
+    </script>
+  </body>
+</html>
