@@ -6,6 +6,18 @@
   </head>
   <body>
     <script>
+      function isGreaterThanTen(number) {
+        if (number > 10) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      let numberTestResult = isGreaterThanTen(7);
+
+      console.log('Is 7 larger than 10', numberTestResult);
+
       // Create an array of 10 numbers
       let numbers = [3, 10, 11, 9, 8, 9, 3, 2, 1, 999];
 
@@ -14,6 +26,41 @@
       console.log('total items in the array', numbers.length);
       console.log('the last item in the array', numbers[numbers.length - 1]);
       console.log(numbers);
+
+      function countFromZeroToTen() {
+        for (let i = 0; i <= 10; i++) {
+          console.log(i);
+        }
+      }
+
+      // Find the largest number from the provided array and return it
+      function getTheLargestNumber(numbers) {
+        let largestNumber;
+
+        // Loop through the array
+        for (let i = 0; i < numbers.length; i++) {
+          let currentNumber = numbers[i];
+
+          // When it is the very first number in the array
+          // set our largestNumber to that number
+          if (i === 0) {
+            largestNumber = currentNumber;
+          } else {
+            // Check if the current value of largestNumber is smaller than
+            // the current number or not.
+            // If yes, set largestNumber to that number
+            if (largestNumber < currentNumber) {
+              largestNumber = currentNumber;
+            }
+          }
+        }
+
+        return largestNumber;
+      }
+
+      let largestNumberResult = getTheLargestNumber(numbers);
+
+      console.log('The largest number of', numbers, largestNumberResult);
     </script>
   </body>
 </html>
