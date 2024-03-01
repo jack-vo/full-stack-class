@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Week 7</title>
+  </head>
+  <body>
+    <script>
+        function tellMeMore(person) {
+            console.log(`My name is ${person.name}`);
+            console.log(`I am ${person.age}`);
+
+            if (person.age < 18) {
+                console.log('I am unemployed');
+            } else if (person.age > 18 && person.age < 65) {
+                console.log('I am employed');
+            } else {
+                console.log('I am retired');
+            }
+        }
+
+        let testPerson = {
+            name: 'Jack Vo',
+            age: 40
+        };
+
+        tellMeMore(testPerson);
+
+        function getGrade(score) {
+            let grade;
+
+            switch (score) {
+                case score >= 90:
+                    grade = 'A';
+                    break;
+                case score >= 80:
+                    grade = 'B';
+                    break;
+                case score >= 70:
+                    grade = 'C';
+                    break;
+                case score >= 60:
+                    grade = 'D';
+                    break;
+                case score >= 50:
+                    grade = 'E';
+                    break;
+                default:
+                    grade = 'F';
+                    break;
+            }
+
+            return grade;
+        }
+
+        let gradeTestResult = getGrade(75);
+
+        console.log(gradeTestResult);
+
+        function countFromZeroToTen(number) {
+            let count = 0;
+
+            while (count <= number) {
+                console.log(count);
+                count++;
+            }
+        }
+
+        countFromZeroToTen(7);
+    </script>
+  </body>
+</html>
