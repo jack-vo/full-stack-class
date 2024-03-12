@@ -19,6 +19,204 @@
       function minus(x, y) {
         return x - y;
       }
+
+      function checkExamResult(score) {
+        if (score >= 50) {
+          return 'Pass';
+        }
+
+        return 'Fail';
+      }
+
+      function divide(x, y) {
+        return x / y;
+      }
+
+      function getAverage(x, y) {
+        let total = add(x, y);
+
+        let result = total / 2;
+
+        return result;
+      }
+
+      function getGrade(score) {
+        if (score >= 90) {
+          return 'A';
+        } else if (score >= 80) {
+          return 'B';
+        } else if (score >= 70) {
+          return 'C';
+        } else if (score >= 60) {
+          return 'D';
+        } else if (score >= 50) {
+          return 'E';
+        } else {
+          return 'F';
+        }
+      }
+
+      function getNumbersLargerThanTen(numbers) {
+        let result = [];
+
+        for (let i = 0; i < numbers.length; i++) {
+          let currentNumber = numbers[i];
+
+          if (currentNumber > 10) {
+            result.push(currentNumber);
+          }
+        }
+
+        return result;
+      }
+
+      function sum(numbers) {
+        let result = 0;
+
+        for (let i = 0; i < numbers.length; i++) {
+          let currentNumber = numbers[i];
+
+          result = result + currentNumber;
+        }
+
+        return result;
+      }
+
+      function getArrayAverage(numbers) {
+        let total = sum(numbers);
+        let result = total / numbers.length;
+
+        return result;
+      }
+
+      function uniqueItems(items) {
+        let result = [];
+
+        for (let i = 0; i < items.length; i++) {
+          let currentItem = items[i];
+
+          if (result.includes(currentItem) === false) {
+            result.push(currentItem);
+          }
+        }
+
+        return result;
+      }
+
+      function reverse(items) {
+        let result = [];
+
+        for (let i = items.length - 1; i >= 0; i--) {
+          let currentItem = items[i];
+
+          result.push(currentItem);
+        }
+
+        return result;
+      }
+
+      function uniqueInOrder(items) {
+        let result = [];
+
+        for (let i = 0; i < items.length; i++) {
+          let currentItem = items[i];
+          let nextItem = items[i + 1];
+
+          if (currentItem !== nextItem) {
+            result.push(currentItem);
+          }
+        }
+
+        return result;
+      }
+
+      function reverseSetence(sentence) {
+        let result = '';
+
+        for (let i = sentence.length - 1; i >= 0; i--) {
+          result = result + sentence[i];
+        }
+
+        return result;
+      }
+
+      function addFromOneUntil(number) {
+        if (number < 1) {
+          return number;
+        }
+
+        if (typeof number !== 'number') {
+          return false;
+        }
+
+        let result = 0;
+
+        for (let i = 1; i <= number; i++) {
+          result = result + i;
+        }
+
+        return result;
+      }
+
+      function countCharacters(character, sentence) {
+        if (character.length > 1) {
+          return false;
+        }
+
+        let result = 0;
+
+        for (let i = 0; i < sentence.length; i++) {
+          let currentCharacter = sentence[i];
+
+          if (currentCharacter === character) {
+            result = result + 1;
+          }
+        }
+
+        return result;
+      }
+
+      function removeItem(item, items) {
+        let result = [];
+
+        for (let i = 0; i < items.length; i++) {
+          let currentItem = items[i];
+
+          if (currentItem !== item) {
+            result.push(currentItem);
+          }
+        }
+
+        return result;
+      }
+
+      function getLargestNumber(numbers) {
+        let result;
+
+        for (let i = 0; i < numbers.length; i++) {
+          let currentNumber = numbers[i];
+
+          if (i === 0 || currentNumber > result) {
+            result = currentNumber;
+          }
+        }
+
+        return result;
+      }
+
+      function getSecondLargestNumber(numbers) {
+        if (numbers.length <= 1) {
+          return false;
+        }
+
+        let largestNumber = getLargestNumber(numbers);
+        let numbersWithoutTheLargestNumber = removeItem(largestNumber, numbers);
+        let the2ndLargestNumber = getLargestNumber(
+          numbersWithoutTheLargestNumber
+        );
+
+        return the2ndLargestNumber;
+      }
     </script>
     <script src="./index.spec.js"></script>
   </body>
