@@ -36,6 +36,17 @@ let onCalculatorButtonClick = function (event) {
 
   processCalculatorWithAction(action);
 };
+let addNewInputValue = function (action) {
+  let inputValue = input.value;
+
+  if (isLastInputAnOperator(inputValue) && isOperator(action)) {
+    return;
+  }
+
+  let newValue = inputValue + action;
+
+  input.value = newValue;
+};
 let processCalculatorWithAction = function (action) {
   if (action === '=') {
     calculateResult();
@@ -44,11 +55,7 @@ let processCalculatorWithAction = function (action) {
   } else if (action === 'DEL') {
     deleteLastInput();
   } else {
-    let inputValue = input.value;
-
-    let newValue = inputValue + action;
-
-    input.value = newValue;
+    addNewInputValue(action);
   }
 
   if (isLastInputAnOperator(input.value)) {
@@ -67,6 +74,8 @@ for (let i = 0; i < buttons.length; i++) {
 // ========================
 // INPUT VALIDATION
 // ========================
+let operators = ['+', '-', '*', '/', '.'];
+
 function setOperatorButtonsDisabled(disabled) {
   for (let i = 0; i < operatorButtons.length; i++) {
     let operatorButton = operatorButtons[i];
@@ -75,10 +84,13 @@ function setOperatorButtonsDisabled(disabled) {
   }
 }
 function isLastInputAnOperator(inputValue) {
-  const operators = ['+', '-', '*', '/', '.'];
   const lastCharacter = inputValue[inputValue.length - 1];
 
   return operators.includes(lastCharacter);
+}
+
+function isOperator(action) {
+  return operators.includes(action);
 }
 
 // ========================
