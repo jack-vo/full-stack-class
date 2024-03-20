@@ -74,3 +74,52 @@ body {
 .calculator-del-btn:hover {
   background-color: #c11d1d;
 }
+
+.input-history {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.input-history.open .input-history-button {
+  background-color: #dbdce0;
+}
+
+.input-history.open .input-history-list {
+  display: block;
+}
+
+.input-history-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.input-history-button:hover {
+  background-color: #dbdce0;
+}
+
+.input-history-list {
+  display: none;
+  margin-top: 3px;
+  max-height: 200px;
+  max-width: 500px;
+  overflow: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-history-list div {
+  padding: 10px;
+}
+
+.input-history-list div:hover {
+  background-color: #dbdce0;
+  cursor: pointer;
+}
