@@ -111,3 +111,8 @@ body {
   background-color: #222;
   color: #fff;
 }
+
+.tabs-panel {
+  display: none;
+}
+
