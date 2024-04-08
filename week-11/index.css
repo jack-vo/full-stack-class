@@ -116,3 +116,6 @@ body {
   display: none;
 }
 
+.tabs-panel.active {
+  display: block;
+}

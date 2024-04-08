@@ -20,6 +20,11 @@ const onTabTriggerButtonClicked = function (event) {
   }
 
   currentButton.classList.add('active');
+
+  const tabTarget = currentButton.getAttribute('data-tab-target');
+  const tab = document.querySelector(`[data-tab-content="${tabTarget}"]`);
+
+  tab.classList.add('active');
 };
 
 for (let i = 0; i < tabTriggerButtons.length; i++) {
