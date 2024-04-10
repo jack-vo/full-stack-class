@@ -10,6 +10,7 @@ sidebarToggleButton.addEventListener('click', function () {
 });
 
 const tabTriggerButtons = document.querySelectorAll('.tabs-trigger');
+const allTabPanels = document.querySelectorAll(`[data-tab-content]`);
 const onTabTriggerButtonClicked = function (event) {
   const currentButton = event.target;
 
@@ -22,9 +23,17 @@ const onTabTriggerButtonClicked = function (event) {
   currentButton.classList.add('active');
 
   const tabTarget = currentButton.getAttribute('data-tab-target');
-  const tab = document.querySelector(`[data-tab-content="${tabTarget}"]`);
 
-  tab.classList.add('active');
+  for (let i = 0; i < allTabPanels.length; i++) {
+    let currentTab = allTabPanels[i];
+    let tabContentValue = currentTab.getAttribute('data-tab-content');
+
+    if (tabContentValue === tabTarget) {
+      currentTab.classList.add('active');
+    } else {
+      currentTab.classList.remove('active');
+    }
+  }
 };
 
 for (let i = 0; i < tabTriggerButtons.length; i++) {
