@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Emoji</title>
+  </head>
+  <body>
+    <button class="btn">😀</button>
+    <button class="btn">😃</button>
+    <button class="btn">😄</button>
+    <button class="btn">😁</button>
+    <button class="btn">😆</button>
+    <button class="btn">😅</button>
+    <button class="btn">😂</button>
+    <button class="btn">🤣</button>
+    <div>
+      <input />
+    </div>
+    <script>
+      let emojiButtons = document.querySelectorAll('.btn');
+      let input = document.querySelector('input');
+      let onEmojiButtonClicked = function (e) {
+        let button = e.target;
+        let text = button.innerHTML;
+        let currentValue = input.value;
+        let newValue = currentValue + text;
+
+        input.value = newValue;
+      };
+
+      for (let i = 0; i < emojiButtons.length; i++) {
+        let button = emojiButtons[i];
+
+        button.addEventListener('click', onEmojiButtonClicked);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Show hide</title>
+    <style>
+      .text-box {
+        width: 150px;
+        height: 150px;
+        background-color: crimson;
+        color: white;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="text-box">Random text</div>
+    <button class="btn">Hide</button>
+
+    <script>
+      let button = document.querySelector('.btn');
+      let textBox = document.querySelector('.text-box');
+      let onButtonClicked = function () {
+        if (textBox.classList.contains('hidden')) {
+          button.textContent = 'Hide';
+          textBox.classList.remove('hidden');
+        } else {
+          button.textContent = 'Show';
+          textBox.classList.add('hidden');
+        }
+      };
+
+      button.addEventListener('click', onButtonClicked);
+    </script>
+  </body>
+</html>

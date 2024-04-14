@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Counter</title>
+  </head>
+  <body>
+    <button class="minus-btn">- 1</button>
+    <input class="value-input" type="number" value="0" />
+    <button class="add-btn">+ 1</button>
+    <script>
+      let minusBtn = document.querySelector('.minus-btn');
+      let addBtn = document.querySelector('.add-btn');
+      let valueInput = document.querySelector('.value-input');
+      let onMinusBtnClick = function () {
+        let value = parseInt(valueInput.value, 10);
+        let newValue = value - 1;
+
+        valueInput.value = newValue;
+      };
+      let onAddBtnClick = function () {
+        let value = parseInt(valueInput.value, 10);
+        let newValue = value + 1;
+
+        valueInput.value = newValue;
+      };
+
+      minusBtn.addEventListener('click', onMinusBtnClick);
+      addBtn.addEventListener('click', onAddBtnClick);
+    </script>
+  </body>
+</html>
