@@ -50,10 +50,13 @@ let quizData = [
 let container = document.querySelector('[data-component="container"]');
 let questionElement = document.querySelector('[data-component="question"]');
 let answersElement = document.querySelector('[data-component="answers"]');
+let nextButton = document.querySelector('[data-component="next"]');
 let currentQuestionIndex = 0;
 let score = 0;
 
-function showQuestion() {
+function showQuestion(questionIndex) {
+  currentQuestionIndex = questionIndex;
+
   let questionData = quizData[currentQuestionIndex];
   let question = questionData.question;
   let answers = questionData.answers;
@@ -71,9 +74,23 @@ function showQuestion() {
     button.classList.add('btn', 'btn-outline-secondary', 'd-block');
     button.addEventListener('click', function () {
       selectAnswer(button, currentAnswer);
+
+      // ******************
+      // Advanced
+      // ******************
+      if (typeof updateAttemptedQuestion !== 'undefined') {
+        updateAttemptedQuestion(questionData, currentAnswer);
+      }
     });
 
     answersElement.appendChild(button);
+  }
+
+  // ******************
+  // Advanced
+  // ******************
+  if (typeof onQuestionChange !== 'undefined') {
+    onQuestionChange();
   }
 }
 
@@ -101,17 +118,26 @@ function selectAnswer(button, answer) {
 }
 
 function nextQuestion() {
-  currentQuestionIndex++;
+  let nextQuestionIndex = currentQuestionIndex + 1;
 
-  if (currentQuestionIndex < quizData.length) {
-    showQuestion();
+  if (nextQuestionIndex < quizData.length) {
+    showQuestion(nextQuestionIndex);
   } else {
     container.innerHTML = `
         <h2>Quiz completed!</h2>
         <div class="alert alert-primary mt-2">Your score is <span class="fw-bold">${score} / ${quizData.length}</span></div>
       `;
+
+    // ******************
+    // Advanced
+    // ******************
+    if (typeof onQuizComplete !== 'undefined') {
+      onQuizComplete();
+    }
   }
 }
 
+nextButton.addEventListener('click', nextQuestion);
+
 // Start with the first question
-showQuestion();
+showQuestion(0);

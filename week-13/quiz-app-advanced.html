@@ -25,11 +25,27 @@
         <div
           data-component="answers"
           class="mb-3 d-flex flex-column gap-3 w-100"></div>
-        <button class="btn btn-primary w-100" data-component="next">
-          Next
-        </button>
+
+        <div class="alert alert-info p-1 px-3 mt-3">
+          <i class="bi bi-clock"></i>
+          <span data-component="timer">00:00:00</span>
+        </div>
+        <div class="d-flex gap-4">
+          <div>
+            <button class="btn btn-secondary" data-component="previous">
+              Previous
+            </button>
+          </div>
+
+          <ul class="pagination" data-component="navigation"></ul>
+
+          <div>
+            <button class="btn btn-primary" data-component="next">Next</button>
+          </div>
+        </div>
       </div>
     </div>
     <script src="quiz-app.js"></script>
+    <script src="quiz-app-advanced.js"></script>
   </body>
 </html>
