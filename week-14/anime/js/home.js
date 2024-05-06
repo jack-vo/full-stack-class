@@ -1,6 +1,17 @@
 let list = document.querySelector('[data-component="list"]');
 let loader = document.querySelector('[data-component="loader"]');
 let filterSelect = document.querySelector('[data-component="filter"]');
+let paginationSelect = document.querySelector(
+  '[data-component="pagination:select"]'
+);
+let paginationPrev = document.querySelector(
+  '[data-component="pagination:previous"]'
+);
+let paginationNext = document.querySelector(
+  '[data-component="pagination:next"]'
+);
+// We store previous filter option so we can rebuild pagination if needed
+let currentFilterOption = '';
 let renderGenres = function (result) {
   let data = result.data;
   let allGenresContent = '';
@@ -17,8 +28,6 @@ let renderGenres = function (result) {
 let renderList = function (result) {
   let data = result.data;
   let allNewItemsContent = '';
-
-  loader.classList.add('d-none');
 
   for (let i = 0; i < data.length; i++) {
     let item = data[i];
@@ -45,8 +54,16 @@ let onFilterSelectChange = function () {
 
   loadList(selectedOption);
 };
+let onPaginationSelectChange = function () {
+  let selectedPage = paginationSelect.value;
+
+  loadList(currentFilterOption, selectedPage);
+};
 let displayLoadingState = function () {
   loader.classList.remove('d-none');
+  paginationSelect.disabled = true;
+  paginationNext.disabled = true;
+  paginationPrev.disabled = true;
 
   // show placeholder
   let items = list.querySelectorAll('[data-component="item"]');
@@ -61,13 +78,58 @@ let displayLoadingState = function () {
     title.classList.add('placeholder');
   }
 };
-let loadList = function (filterOption) {
-  let requestUrl = 'https://api.jikan.moe/v4';
+let removeLoadingState = function () {
+  loader.classList.add('d-none');
+  paginationSelect.disabled = false;
+  paginationNext.disabled = false;
+  paginationPrev.disabled = false;
+};
+let renderPagination = function (result) {
+  let pagination = result.pagination;
+  let paginationItems = pagination.items;
+  let paginationOptionsContent = '';
+
+  for (let i = 1; i <= paginationItems.count; i++) {
+    let itemContent = '';
+
+    if (i === 1) {
+      itemContent = `<option selected value="${i}">${i}</option>`;
+    } else {
+      itemContent = `<option value="${i}">${i}</option>`;
+    }
+
+    paginationOptionsContent = paginationOptionsContent + itemContent;
+  }
+
+  paginationSelect.innerHTML = paginationOptionsContent;
+};
+let loadList = function (filterOption, page) {
+  let requestUrl = 'https://api.jikan.moe/v4/';
+  let shouldRebuildPagination = false;
+
+  if (currentFilterOption !== filterOption) {
+    currentFilterOption = filterOption;
+    shouldRebuildPagination = true;
+  }
+
+  let params = {};
 
   if (filterOption === 'top') {
-    requestUrl = requestUrl + '/top/anime';
+    requestUrl = requestUrl + 'top/anime';
   } else {
-    requestUrl = requestUrl + `/anime?genres=${filterOption}`;
+    requestUrl = requestUrl + 'anime';
+    params.genres = filterOption;
+  }
+
+  if (page) {
+    params.page = page;
+  }
+
+  let searchParams = new URLSearchParams(params);
+  let searchParamsString = searchParams.toString();
+
+  if (searchParamsString) {
+    requestUrl = `${requestUrl}?${searchParams.toString()}`;
   }
 
   displayLoadingState();
@@ -76,10 +138,47 @@ let loadList = function (filterOption) {
     .then(function (response) {
       return response.json();
     })
-    .then(renderList);
+    .then(function (result) {
+      renderList(result);
+
+      if (shouldRebuildPagination) {
+        renderPagination(result);
+      }
+
+      removeLoadingState();
+    });
+};
+let onPaginationNextClick = function () {
+  let selectedPage = paginationSelect.value;
+  let lastPage = paginationSelect.lastChild.value;
+
+  selectedPage = parseInt(selectedPage, 10);
+  lastPage = parseInt(lastPage, 10);
+
+  let nextPage = selectedPage + 1;
+
+  if (nextPage <= lastPage) {
+    paginationSelect.value = nextPage;
+    loadList(currentFilterOption, nextPage);
+  }
+};
+let onPaginationPrevClick = function () {
+  let selectedPage = paginationSelect.value;
+
+  selectedPage = parseInt(selectedPage, 10);
+
+  let previousPage = selectedPage - 1;
+
+  if (previousPage >= 1) {
+    paginationSelect.value = previousPage;
+    loadList(currentFilterOption, previousPage);
+  }
 };
 
 filterSelect.addEventListener('change', onFilterSelectChange);
+paginationSelect.addEventListener('change', onPaginationSelectChange);
+paginationNext.addEventListener('click', onPaginationNextClick);
+paginationPrev.addEventListener('click', onPaginationPrevClick);
 
 fetch('https://api.jikan.moe/v4/genres/anime')
   .then(function (response) {
