@@ -50,39 +50,36 @@ let renderList = function (result) {
   list.innerHTML = allNewItemsContent;
 };
 let onFilterSelectChange = function () {
-  let selectedOption = filterSelect.value;
-
-  loadList(selectedOption);
+  loadList();
 };
 let onPaginationSelectChange = function () {
-  let selectedPage = paginationSelect.value;
-
-  loadList(currentFilterOption, selectedPage);
+  loadList();
 };
-let displayLoadingState = function () {
-  loader.classList.remove('d-none');
-  paginationSelect.disabled = true;
-  paginationNext.disabled = true;
-  paginationPrev.disabled = true;
-
-  // show placeholder
-  let items = list.querySelectorAll('[data-component="item"]');
-
-  for (let i = 0; i < items.length; i++) {
-    let item = items[i];
-    let image = item.querySelector('[data-component="image"]');
-    let title = item.querySelector('[data-component="title"]');
-
-    item.classList.add('placeholder-wave');
-    image.classList.add('placeholder');
-    title.classList.add('placeholder');
+let setLoadingState = function (loading) {
+  if (loading) {
+    loader.classList.remove('d-none');
+  } else {
+    loader.classList.add('d-none');
   }
-};
-let removeLoadingState = function () {
-  loader.classList.add('d-none');
-  paginationSelect.disabled = false;
-  paginationNext.disabled = false;
-  paginationPrev.disabled = false;
+
+  paginationSelect.disabled = loading;
+  paginationNext.disabled = loading;
+  paginationPrev.disabled = loading;
+
+  if (loading) {
+    // show placeholder
+    let items = list.querySelectorAll('[data-component="item"]');
+
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i];
+      let image = item.querySelector('[data-component="image"]');
+      let title = item.querySelector('[data-component="title"]');
+
+      item.classList.add('placeholder-wave');
+      image.classList.add('placeholder');
+      title.classList.add('placeholder');
+    }
+  }
 };
 let renderPagination = function (result) {
   let pagination = result.pagination;
@@ -103,7 +100,9 @@ let renderPagination = function (result) {
 
   paginationSelect.innerHTML = paginationOptionsContent;
 };
-let loadList = function (filterOption, page) {
+let loadList = function () {
+  let filterOption = filterSelect.value;
+  let page = paginationSelect.value;
   let requestUrl = 'https://api.jikan.moe/v4/';
   let shouldRebuildPagination = false;
 
@@ -132,7 +131,7 @@ let loadList = function (filterOption, page) {
     requestUrl = `${requestUrl}?${searchParams.toString()}`;
   }
 
-  displayLoadingState();
+  setLoadingState(true);
 
   fetch(requestUrl)
     .then(function (response) {
@@ -145,7 +144,7 @@ let loadList = function (filterOption, page) {
         renderPagination(result);
       }
 
-      removeLoadingState();
+      setLoadingState(false);
     });
 };
 let onPaginationNextClick = function () {
@@ -159,7 +158,8 @@ let onPaginationNextClick = function () {
 
   if (nextPage <= lastPage) {
     paginationSelect.value = nextPage;
-    loadList(currentFilterOption, nextPage);
+
+    loadList();
   }
 };
 let onPaginationPrevClick = function () {
@@ -171,7 +171,8 @@ let onPaginationPrevClick = function () {
 
   if (previousPage >= 1) {
     paginationSelect.value = previousPage;
-    loadList(currentFilterOption, previousPage);
+
+    loadList();
   }
 };
 
@@ -186,4 +187,4 @@ fetch('https://api.jikan.moe/v4/genres/anime')
   })
   .then(renderGenres);
 
-loadList('top');
+loadList();
