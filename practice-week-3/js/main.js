@@ -19,13 +19,11 @@ class QuizApp {
 
   #render() {
     this.#container.innerHTML = `
-    <div class="container mt-5">
-      <div class="d-flex flex-column align-items-center">
+    <div class="container mt-5 text-center">
         <div data-component="selection"></div>
         <div data-component="content"></div>
         <div data-component="timer"></div>
         <div data-component="navigation"></div>
-      </div>
     </div>`;
   }
 

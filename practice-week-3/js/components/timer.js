@@ -30,7 +30,7 @@ class Timer {
 
   #render() {
     this.#container.innerHTML = `
-        <div class="alert alert-info p-1 px-3 mt-3">
+        <div class="alert alert-info p-1 px-3 mt-3 d-inline-block d-none">
           <i class="bi bi-clock"></i>
           <span data-component="clock">00:00:00</span>
         </div>`;
@@ -49,6 +49,7 @@ class Timer {
 
     this.#seconds = 0;
     this.#interval = setInterval(onInterval.bind(this), 1000);
+    this.#container.classList.remove('d-none');
   }
 
   stop() {

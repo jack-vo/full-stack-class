@@ -19,7 +19,7 @@ class QuizSelection {
     }
 
     this.#container.innerHTML = `
-        <select class="form-select">
+        <select class="form-select d-inline-block w-auto mb-5">
             <option>-- Select a quiz --</option>
             ${options}
         </select>
