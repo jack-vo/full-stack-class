@@ -61,7 +61,7 @@ class QuizApp {
   }
 
   #onQuizSelectionChange(selectedValue) {
-    let url = `/practice-week-3/data/${selectedValue}.json`;
+    let url = `data/${selectedValue}.json`;
 
     this.#timer.stop();
 
