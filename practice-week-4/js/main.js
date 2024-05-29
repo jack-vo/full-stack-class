@@ -71,6 +71,8 @@ class QuizApp {
       })
       .then(
         function (result) {
+          console.log('Selected quiz data', result);
+
           this.#attemptedItems = [];
           this.#activeQuiz = result;
           this.#quizContent.setQuizData(result);

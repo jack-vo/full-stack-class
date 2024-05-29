@@ -1,5 +1,3 @@
-import { quizList } from '../constants/index.js';
-
 class QuizSelection {
   #container;
   #select;
@@ -7,23 +5,20 @@ class QuizSelection {
   constructor(container) {
     this.#container = container;
     this.#render();
+    this.#setup();
   }
 
   #render() {
-    let options = '';
-
-    for (let i = 0; i < quizList.length; i++) {
-      let currentQuizItem = quizList[i];
-
-      options += `<option value="${currentQuizItem.value}">${currentQuizItem.title}</option>`;
-    }
-
     this.#container.innerHTML = `
         <select class="form-select d-inline-block w-auto mb-5">
             <option>-- Select a quiz --</option>
-            ${options}
-        </select>
-    `;
+            <option value="javascript-quiz">Javascript Quiz</option>
+            <option value="au-history-quiz">Australian History Quiz</option>
+            <option value="electric-car-quiz">Electric Cars Quiz</option>
+        </select>`;
+  }
+
+  #setup() {
     this.#select = this.#container.querySelector('select');
     this.#select.addEventListener('change', this.#onSelectChange.bind(this));
   }
