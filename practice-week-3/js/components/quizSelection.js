@@ -34,9 +34,11 @@ class QuizSelection {
     // Disable first option so they can't select it
     this.#select.querySelector('option').disabled = true;
 
-    if (this.onChange) {
-      this.onChange(selectedValue);
-    }
+    this.onChange(selectedValue);
+  }
+
+  destroy() {
+    this.#container.innerHTML = '';
   }
 }
 

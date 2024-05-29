@@ -41,7 +41,7 @@ class QuizContent {
       content += `
         <div class="d-none" data-item="${itemIndex}">
           <div class="mb-3">
-            <span class="fw-bold">Question 1.</span> ${question}
+            <span class="fw-bold">Question ${itemIndex + 1}.</span> ${question}
           </div>
           <div class="mb-3 d-flex flex-column gap-3 w-100">${answersContent}</div>
         </div>
@@ -76,9 +76,11 @@ class QuizContent {
     let selectedAnswerIndex = Number(answerElement.getAttribute('data-answer'));
     let selectedAnswer = answers[selectedAnswerIndex];
 
-    // disable all answer elements
-    for (let i = 0; i < this.#allAnswers.length; i++) {
-      let element = this.#allAnswers[i];
+    // disable all answer elements inside the current item
+    let allItemAnswers = parentItemContainer.querySelectorAll('[data-answer]');
+
+    for (let i = 0; i < allItemAnswers.length; i++) {
+      let element = allItemAnswers[i];
 
       element.disabled = true;
     }
@@ -93,10 +95,10 @@ class QuizContent {
 
     if (selectedAnswer.correct) {
       answerElement.classList.add('btn-success');
-      icon.classList.add('bi-exclamation-circle-fill');
-    } else {
       icon.classList.add('bi-check-circle-fill');
+    } else {
       answerElement.classList.add('btn-danger');
+      icon.classList.add('bi-exclamation-circle-fill');
     }
 
     answerElement.append(icon);
@@ -104,11 +106,11 @@ class QuizContent {
     // notify the selection to outer component
     let data = {
       itemIndex: itemIndex,
-      answerIndex: answerIndex,
+      answerIndex: selectedAnswerIndex,
       correct: selectedAnswer.correct,
     };
 
-    this.onSelected(data);
+    this.onChange(data);
   }
 
   setActiveItem(itemIndex) {
@@ -123,6 +125,10 @@ class QuizContent {
         itemContainer.classList.add('d-none');
       }
     }
+  }
+
+  destroy() {
+    this.#container.innerHTML = '';
   }
 }
 
