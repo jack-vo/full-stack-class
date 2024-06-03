@@ -75,8 +75,8 @@ class QuizApp {
 
           this.#attemptedItems = [];
           this.#activeQuiz = result;
-          this.#quizContent.setQuizData(result);
-          this.#quizNavigation.setQuizData(result);
+          this.#quizContent.setQuizData(this.#activeQuiz);
+          this.#quizNavigation.setQuizData(this.#activeQuiz);
           this.#timer.start();
           this.#report.destroy();
         }.bind(this)

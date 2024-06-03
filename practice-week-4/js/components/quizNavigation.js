@@ -15,8 +15,14 @@ class QuizNavigation {
     let quizItemsLength = data.items.length;
 
     for (let i = 0; i < quizItemsLength; i++) {
+      let extraClass = '';
+
+      if (i === 0) {
+        extraClass = 'active';
+      }
+
       paginationContent += `
-        <li class="page-item" data-index="${i}">
+        <li class="page-item ${extraClass}" data-index="${i}">
           <button class="page-link">${i + 1}</button>
         </li>
       `;
@@ -67,11 +73,6 @@ class QuizNavigation {
 
     for (let i = 0; i < this.#allPaginationItems.length; i++) {
       let paginationItem = this.#allPaginationItems[i];
-
-      // make first item active
-      if (i === 0) {
-        paginationItem.classList.add('active');
-      }
 
       paginationItem.addEventListener(
         'click',
