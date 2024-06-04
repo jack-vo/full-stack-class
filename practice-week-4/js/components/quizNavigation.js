@@ -2,8 +2,7 @@ class QuizNavigation {
   #container;
   #prevButton;
   #nextButton;
-  #pagination;
-  #allPaginationItems;
+  #paginationItems;
   #activeItemIndex;
 
   constructor(container) {
@@ -49,6 +48,9 @@ class QuizNavigation {
   }
 
   #setup() {
+    // reset index
+    this.#activeItemIndex = 0;
+
     this.#prevButton = this.#container.querySelector(
       '[data-component="previous"]'
     );
@@ -60,28 +62,16 @@ class QuizNavigation {
     this.#nextButton = this.#container.querySelector('[data-component="next"]');
     this.#nextButton.addEventListener('click', this.#onNextClicked.bind(this));
 
-    this.#pagination = this.#container.querySelector(
-      '[data-component="pagination"]'
-    );
-    this.#pagination.addEventListener(
-      'change',
-      this.#onPaginationChanged.bind(this)
-    );
+    this.#paginationItems = this.#container.querySelectorAll('[data-index]');
 
-    this.#allPaginationItems =
-      this.#pagination.querySelectorAll('[data-index]');
-
-    for (let i = 0; i < this.#allPaginationItems.length; i++) {
-      let paginationItem = this.#allPaginationItems[i];
+    for (let i = 0; i < this.#paginationItems.length; i++) {
+      let paginationItem = this.#paginationItems[i];
 
       paginationItem.addEventListener(
         'click',
         this.#onPaginationChanged.bind(this)
       );
     }
-
-    // reset index
-    this.#activeItemIndex = 0;
   }
 
   #onPreviousClicked() {
@@ -91,7 +81,7 @@ class QuizNavigation {
   }
 
   #onNextClicked() {
-    if (this.#activeItemIndex === this.#allPaginationItems.length - 1) {
+    if (this.#activeItemIndex === this.#paginationItems.length - 1) {
       this.onSubmit();
     } else {
       this.#activeItemIndex += 1;
@@ -111,10 +101,10 @@ class QuizNavigation {
   }
 
   #updateActivePaginationItem() {
-    for (let i = 0; i < this.#allPaginationItems.length; i++) {
-      let paginationItem = this.#allPaginationItems[i];
+    for (let i = 0; i < this.#paginationItems.length; i++) {
+      let paginationItem = this.#paginationItems[i];
 
-      // make first item active
+      // make item that has its index matching #activeItemIndex "active"
       if (i === this.#activeItemIndex) {
         paginationItem.classList.add('active');
       } else {
@@ -122,7 +112,7 @@ class QuizNavigation {
       }
     }
 
-    let lastPaginationItemIndex = this.#allPaginationItems.length - 1;
+    let lastPaginationItemIndex = this.#paginationItems.length - 1;
 
     if (this.#activeItemIndex === lastPaginationItemIndex) {
       this.#nextButton.innerHTML = 'Submit';
