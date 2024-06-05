@@ -21,10 +21,11 @@ class QuizNavigation {
       }
 
       paginationContent += `
-        <li class="page-item ${extraClass}" data-index="${i}">
-          <button class="page-link">${i + 1}</button>
-        </li>
-      `;
+        <li class="page-item">
+          <button class="page-link ${extraClass}" data-index="${i}">
+            ${i + 1}
+          </button>
+        </li>`;
     }
 
     this.#container.innerHTML = `
@@ -69,7 +70,7 @@ class QuizNavigation {
 
       paginationItem.addEventListener(
         'click',
-        this.#onPaginationChanged.bind(this)
+        this.#onPaginationItemClicked.bind(this)
       );
     }
   }
@@ -77,7 +78,7 @@ class QuizNavigation {
   #onPreviousClicked() {
     this.#activeItemIndex -= 1;
 
-    this.#updateActivePaginationItem();
+    this.#updateNavigation();
   }
 
   #onNextClicked() {
@@ -86,21 +87,21 @@ class QuizNavigation {
     } else {
       this.#activeItemIndex += 1;
 
-      this.#updateActivePaginationItem();
+      this.#updateNavigation();
     }
   }
 
-  #onPaginationChanged(event) {
-    let paginationItem = event.target.closest('[data-index]');
+  #onPaginationItemClicked(event) {
+    let paginationItem = event.target;
     let paginationItemIndex = Number(paginationItem.getAttribute('data-index'));
 
     if (paginationItemIndex !== this.#activeItemIndex) {
       this.#activeItemIndex = paginationItemIndex;
-      this.#updateActivePaginationItem();
+      this.#updateNavigation();
     }
   }
 
-  #updateActivePaginationItem() {
+  #updateNavigation() {
     for (let i = 0; i < this.#paginationItems.length; i++) {
       let paginationItem = this.#paginationItems[i];
 
