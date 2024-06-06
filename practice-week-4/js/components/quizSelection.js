@@ -1,9 +1,11 @@
 class QuizSelection {
   #container;
   #select;
+  #onChange;
 
-  constructor(container) {
+  constructor(container, onChange) {
     this.#container = container;
+    this.#onChange = onChange;
     this.#render();
     this.#setup();
   }
@@ -29,7 +31,7 @@ class QuizSelection {
     // Disable first option so they can't select it
     this.#select.querySelector('option').disabled = true;
 
-    this.onChange(selectedValue);
+    this.#onChange(selectedValue);
   }
 
   destroy() {

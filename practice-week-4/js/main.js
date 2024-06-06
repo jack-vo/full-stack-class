@@ -35,21 +35,22 @@ class QuizApp {
     let container = this.#container;
 
     this.#quizSelection = new QuizSelection(
-      container.querySelector('[data-component="selection"]')
+      container.querySelector('[data-component="selection"]'),
+      this.#onQuizSelectionChange.bind(this)
     );
-
-    this.#quizSelection.onChange = this.#onQuizSelectionChange.bind(this);
 
     this.#quizContent = new QuizContent(
-      container.querySelector('[data-component="content"]')
+      container.querySelector('[data-component="content"]'),
+      this.#onQuizAnswerChange.bind(this)
     );
-    this.#quizContent.onChange = this.#onQuizAnswerChange.bind(this);
 
     this.#quizNavigation = new QuizNavigation(
-      container.querySelector('[data-component="navigation"]')
+      container.querySelector('[data-component="navigation"]'),
+      {
+        onChange: this.#onQuizNavigationChange.bind(this),
+        onSubmit: this.#onSubmit.bind(this),
+      }
     );
-    this.#quizNavigation.onChange = this.#onQuizNavigationChange.bind(this);
-    this.#quizNavigation.onSubmit = this.#onSubmit.bind(this);
 
     this.#timer = new Timer(
       container.querySelector('[data-component="timer"]')

@@ -2,9 +2,11 @@ class QuizContent {
   #container;
   #allAnswers;
   #data;
+  #onChange;
 
-  constructor(container) {
+  constructor(container, onChange) {
     this.#container = container;
+    this.#onChange = onChange;
   }
 
   setQuizData(data) {
@@ -110,7 +112,7 @@ class QuizContent {
       correct: selectedAnswer.correct,
     };
 
-    this.onChange(data);
+    this.#onChange(data);
   }
 
   setActiveItem(itemIndex) {

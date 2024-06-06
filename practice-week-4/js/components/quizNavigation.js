@@ -4,9 +4,13 @@ class QuizNavigation {
   #nextButton;
   #paginationItems;
   #activeItemIndex;
+  #onSubmit;
+  #onChange;
 
-  constructor(container) {
+  constructor(container, options) {
     this.#container = container;
+    this.#onSubmit = options.onSubmit;
+    this.#onChange = options.onChange;
   }
 
   setQuizData(data) {
@@ -83,7 +87,7 @@ class QuizNavigation {
 
   #onNextClicked() {
     if (this.#activeItemIndex === this.#paginationItems.length - 1) {
-      this.onSubmit();
+      this.#onSubmit();
     } else {
       this.#activeItemIndex += 1;
 
@@ -127,7 +131,7 @@ class QuizNavigation {
       this.#prevButton.disabled = false;
     }
 
-    this.onChange(this.#activeItemIndex);
+    this.#onChange(this.#activeItemIndex);
   }
 
   destroy() {
