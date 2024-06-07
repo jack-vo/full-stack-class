@@ -44,12 +44,13 @@ class QuizApp {
       this.#onQuizAnswerChange.bind(this)
     );
 
+    let navigationEvents = {
+      onChange: this.#onQuizNavigationChange.bind(this),
+      onSubmit: this.#onSubmit.bind(this),
+    };
     this.#quizNavigation = new QuizNavigation(
       container.querySelector('[data-component="navigation"]'),
-      {
-        onChange: this.#onQuizNavigationChange.bind(this),
-        onSubmit: this.#onSubmit.bind(this),
-      }
+      navigationEvents
     );
 
     this.#timer = new Timer(
