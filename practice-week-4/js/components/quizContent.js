@@ -1,6 +1,5 @@
 class QuizContent {
   #container;
-  #allAnswers;
   #data;
   #onChange;
 
@@ -54,10 +53,10 @@ class QuizContent {
   }
 
   #setup() {
-    this.#allAnswers = this.#container.querySelectorAll('[data-answer]');
+    const allAnswers = this.#container.querySelectorAll('[data-answer]');
 
-    for (let i = 0; i < this.#allAnswers.length; i++) {
-      let currentElement = this.#allAnswers[i];
+    for (let i = 0; i < allAnswers.length; i++) {
+      let currentElement = allAnswers[i];
 
       currentElement.addEventListener(
         'click',
@@ -73,8 +72,8 @@ class QuizContent {
 
     itemIndex = Number(itemIndex);
 
-    let currentQuizItem = this.#data.items[itemIndex];
-    let answers = currentQuizItem.answers;
+    let currentQuestionItem = this.#data.items[itemIndex];
+    let answers = currentQuestionItem.answers;
     let selectedAnswerIndex = Number(answerElement.getAttribute('data-answer'));
     let selectedAnswer = answers[selectedAnswerIndex];
 
