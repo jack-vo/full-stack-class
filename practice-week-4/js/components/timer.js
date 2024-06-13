@@ -43,17 +43,17 @@ class Timer {
   }
 
   start() {
-    let onInterval = function () {
-      this.#seconds++;
-
-      let formattedTimeString = formatTime(this.#seconds);
-
-      this.#clock.innerHTML = formattedTimeString;
-    };
-
     this.#seconds = 0;
-    this.#interval = setInterval(onInterval.bind(this), 1000);
+    this.#interval = setInterval(this.#onInterval.bind(this), 1000);
     this.#container.classList.remove('d-none');
+  }
+
+  #onInterval() {
+    this.#seconds++;
+
+    let formattedTimeString = formatTime(this.#seconds);
+
+    this.#clock.innerHTML = formattedTimeString;
   }
 
   getSeconds() {
