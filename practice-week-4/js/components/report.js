@@ -2,7 +2,7 @@ import { formatTime } from './timer.js';
 
 class Report {
   #container;
-  #data;
+
   constructor(container) {
     this.#container = container;
   }
