@@ -4,7 +4,7 @@ import QuizSelection from './components/quizSelection.js';
 import Timer from './components/timer.js';
 import Report from './components/report.js';
 
-class QuizApp {
+export class QuizApp {
   #container;
   #quizSelection;
   #quizContent;
@@ -71,18 +71,18 @@ class QuizApp {
       .then(function (response) {
         return response.json();
       })
-      .then(
-        function (result) {
-          console.log('Selected quiz data', result);
+      .then(this.processSelectedQuiz.bind(this));
+  }
 
-          this.#attemptedItems = [];
-          this.#activeQuiz = result;
-          this.#quizContent.setQuizData(this.#activeQuiz);
-          this.#quizNavigation.setQuizData(this.#activeQuiz);
-          this.#timer.start();
-          this.#report.destroy();
-        }.bind(this)
-      );
+  processSelectedQuiz(quiz) {
+    console.log('Selected quiz data', quiz);
+
+    this.#attemptedItems = [];
+    this.#activeQuiz = quiz;
+    this.#quizContent.setQuizData(this.#activeQuiz);
+    this.#quizNavigation.setQuizData(this.#activeQuiz);
+    this.#timer.start();
+    this.#report.destroy();
   }
 
   #onQuizAnswerChange(data) {
@@ -120,4 +120,8 @@ class QuizApp {
   }
 }
 
-const app = new QuizApp(document.querySelector('#app'));
+const quizAppContainer = document.querySelector('#app');
+
+if (quizAppContainer) {
+  const app = new QuizApp(quizAppContainer);
+}

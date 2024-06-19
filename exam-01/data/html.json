@@ -1,0 +1,137 @@
+{
+  "title": "HTML Basics Quiz",
+  "items": [
+    {
+      "question": "What does HTML stand for?",
+      "answers": [
+        { "text": "Hyper Text Markup Language", "correct": true },
+        { "text": "High Text Markup Language", "correct": false },
+        { "text": "Hyper Tech Markup Language", "correct": false },
+        { "text": "None of the above", "correct": false }
+      ]
+    },
+    {
+      "question": "Which HTML tag is used to define an internal style sheet?",
+      "answers": [
+        { "text": "<style>", "correct": true },
+        { "text": "<script>", "correct": false },
+        { "text": "<css>", "correct": false },
+        { "text": "<link>", "correct": false }
+      ]
+    },
+    {
+      "question": "Which HTML attribute is used to define inline styles?",
+      "answers": [
+        { "text": "style", "correct": true },
+        { "text": "class", "correct": false },
+        { "text": "styles", "correct": false },
+        { "text": "font", "correct": false }
+      ]
+    },
+    {
+      "question": "Which doctype is correct for HTML5?",
+      "answers": [
+        { "text": "<!DOCTYPE html>", "correct": true },
+        {
+          "text": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 5.0//EN\">",
+          "correct": false
+        },
+        { "text": "<!DOCTYPE HTML5>", "correct": false },
+        { "text": "<HTML>", "correct": false }
+      ]
+    },
+    {
+      "question": "Which HTML element is used to specify a footer for a document or section?",
+      "answers": [
+        { "text": "<footer>", "correct": true },
+        { "text": "<bottom>", "correct": false },
+        { "text": "<header>", "correct": false },
+        { "text": "<section>", "correct": false }
+      ]
+    },
+    {
+      "question": "What is the correct HTML element for inserting a line break?",
+      "answers": [
+        { "text": "<br>", "correct": true },
+        { "text": "<break>", "correct": false },
+        { "text": "<lb>", "correct": false },
+        { "text": "<hr>", "correct": false }
+      ]
+    },
+    {
+      "question": "Which HTML element is used to define emphasized text?",
+      "answers": [
+        { "text": "<em>", "correct": true },
+        { "text": "<i>", "correct": false },
+        { "text": "<important>", "correct": false },
+        { "text": "<strong>", "correct": false }
+      ]
+    },
+    {
+      "question": "Which element is used to define the top title text of a HTML page?",
+      "answers": [
+        { "text": "<cite>", "correct": false },
+        { "text": "<title>", "correct": true },
+        { "text": "<work>", "correct": false },
+        { "text": "<name>", "correct": false }
+      ]
+    },
+    {
+      "question": "Which HTML tag is used to create a text input field?",
+      "answers": [
+        { "text": "<input>", "correct": true },
+        { "text": "<textfield>", "correct": false },
+        { "text": "<textinput>", "correct": false },
+        { "text": "<textbox>", "correct": false }
+      ]
+    },
+    {
+      "question": "Which one is the right way to set a link for an <a> tag?",
+      "answers": [
+        {
+          "text": "<a url=\"https://example.com\">Example</a>",
+          "correct": false
+        },
+        {
+          "text": "<a href=\"https://example.com\">Example</a>",
+          "correct": true
+        },
+        {
+          "text": "<a link=\"https://example.com\">Example</a>",
+          "correct": false
+        },
+        { "text": "<a>https://examle.com</a>", "correct": false }
+      ]
+    },
+    {
+      "question": "Which HTML tag is used to define a dropdown list?",
+      "answers": [
+        { "text": "<select>", "correct": true },
+        { "text": "<dropdown>", "correct": false },
+        { "text": "<list>", "correct": false },
+        { "text": "<option>", "correct": false }
+      ]
+    },
+    {
+      "question": "What is the correct HTML for making a checkbox?",
+      "answers": [
+        { "text": "<checkbox>", "correct": false },
+        { "text": "<input type='checkbox'>", "correct": true },
+        { "text": "<check>", "correct": false },
+        { "text": "<input check='checkbox'>", "correct": false }
+      ]
+    },
+    {
+      "question": "What is the purpose of the HTML <label> tag?",
+      "answers": [
+        {
+          "text": "To create a label for a <button> element",
+          "correct": false
+        },
+        { "text": "To link a label to an HTML form control", "correct": true },
+        { "text": "To bold the text", "correct": false },
+        { "text": "To italicize the text", "correct": false }
+      ]
+    }
+  ]
+}

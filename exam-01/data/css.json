@@ -1,0 +1,224 @@
+{
+  "title": "CSS Basics Quiz",
+  "items": [
+    {
+      "question": "What is the easiest way to setup the page layout?",
+      "answers": [
+        {
+          "text": "display: flex -> inspect with DevTool -> Research and use the CSS you think is necessary",
+          "correct": false
+        },
+        {
+          "text": "display: flex -> inspect with DevTool -> Flex Tool",
+          "correct": true
+        },
+        { "text": "Ask openAI to do it for me", "correct": false },
+        { "text": "display: block + float: left", "correct": false }
+      ]
+    },
+    {
+      "question": "What does CSS stand for?",
+      "answers": [
+        { "text": "Computing Style Sheets", "correct": false },
+        { "text": "Creative Style Sheets", "correct": false },
+        { "text": "Cascading Style Sheets", "correct": true },
+        { "text": "Colorful Style Sheets", "correct": false }
+      ]
+    },
+    {
+      "question": "Which property is used to change the background color of an element?",
+      "answers": [
+        { "text": "color", "correct": false },
+        { "text": "bgcolor", "correct": false },
+        { "text": "background", "correct": false },
+        { "text": "background-color", "correct": true }
+      ]
+    },
+    {
+      "question": "How do you insert a comment in a CSS file?",
+      "answers": [
+        { "text": "/* this is a comment */", "correct": true },
+        { "text": "// this is a comment", "correct": false },
+        { "text": "<!-- this is a comment -->", "correct": false },
+        { "text": "`this is a comment`", "correct": false }
+      ]
+    },
+    {
+      "question": "What property is used to change the font of an element?",
+      "answers": [
+        { "text": "font-style", "correct": false },
+        { "text": "font-family", "correct": true },
+        { "text": "text-style", "correct": false },
+        { "text": "typeface", "correct": false }
+      ]
+    },
+    {
+      "question": "Which CSS property controls the text size?",
+      "answers": [
+        { "text": "font-size", "correct": true },
+        { "text": "text-size", "correct": false },
+        { "text": "font-weight", "correct": false },
+        { "text": "text-style", "correct": false }
+      ]
+    },
+    {
+      "question": "What does the 'z-index' property do?",
+      "answers": [
+        { "text": "Controls the horizontal alignment", "correct": false },
+        { "text": "Manages the stacking order of elements", "correct": true },
+        { "text": "Changes the zoom level of elements", "correct": false },
+        { "text": "Alters the opacity of elements", "correct": false }
+      ]
+    },
+    {
+      "question": "Which statement is true about the 'display' property?",
+      "answers": [
+        {
+          "text": "The display: none property also removes the element from the flow of the document.",
+          "correct": true
+        },
+        {
+          "text": "The display: block property displays an element as an inline element.",
+          "correct": false
+        },
+        {
+          "text": "The display: inline property does not allow width and height to be set.",
+          "correct": true
+        },
+        {
+          "text": "The display: inline-block property is not supported in HTML5.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "How do you make each word in a text start with a capital letter?",
+      "answers": [
+        { "text": "text-transform: capitalize;", "correct": true },
+        { "text": "text-transform: uppercase;", "correct": false },
+        { "text": "font-style: capitalize;", "correct": false },
+        { "text": "text-style: initial;", "correct": false }
+      ]
+    },
+    {
+      "question": "What is the default value of the position property?",
+      "answers": [
+        { "text": "relative", "correct": false },
+        { "text": "absolute", "correct": false },
+        { "text": "fixed", "correct": false },
+        { "text": "static", "correct": true }
+      ]
+    },
+    {
+      "question": "Which pseudo-class is used to select elements that are the first child of their parent?",
+      "answers": [
+        { "text": ":first-of-type", "correct": false },
+        { "text": ":first-child", "correct": true },
+        { "text": ":first", "correct": false },
+        { "text": ":child-first", "correct": false }
+      ]
+    },
+    {
+      "question": "Which CSS property is used to make the text bold?",
+      "answers": [
+        { "text": "font-weight", "correct": true },
+        { "text": "text-style", "correct": false },
+        { "text": "font-bold", "correct": false },
+        { "text": "text-weight", "correct": false }
+      ]
+    },
+    {
+      "question": "How can you create rounded corners using CSS?",
+      "answers": [
+        { "text": "border-radius", "correct": true },
+        { "text": "corner-curve", "correct": false },
+        { "text": "radius", "correct": false },
+        { "text": "edge-round", "correct": false }
+      ]
+    },
+    {
+      "question": "What CSS property is used to change the text color of an element?",
+      "answers": [
+        { "text": "text-color", "correct": false },
+        { "text": "color", "correct": true },
+        { "text": "font-color", "correct": false },
+        { "text": "type-color", "correct": false }
+      ]
+    },
+    {
+      "question": "Which CSS property adjusts the space between characters of text?",
+      "answers": [
+        { "text": "letter-spacing", "correct": true },
+        { "text": "spacing", "correct": false },
+        { "text": "character-spacing", "correct": false },
+        { "text": "text-spacing", "correct": false }
+      ]
+    },
+    {
+      "question": "Which property is NOT a valid display property value?",
+      "answers": [
+        { "text": "block", "correct": false },
+        { "text": "hidden", "correct": true },
+        { "text": "flex", "correct": false },
+        { "text": "inline", "correct": false }
+      ]
+    },
+    {
+      "question": "What is the function of the CSS 'overflow' property?",
+      "answers": [
+        {
+          "text": "Controls what happens to content that is too large for its container",
+          "correct": true
+        },
+        {
+          "text": "Determines how content is distributed in flex containers",
+          "correct": false
+        },
+        {
+          "text": "Sets how elements overflow out of the viewport",
+          "correct": false
+        },
+        {
+          "text": "Specifies how many times an element should float",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "Which CSS property sets the stacking context of an element without changing its position in the document?",
+      "answers": [
+        { "text": "z-order", "correct": false },
+        { "text": "z-level", "correct": false },
+        { "text": "z-index", "correct": true },
+        { "text": "stack-level", "correct": false }
+      ]
+    },
+    {
+      "question": "Which property is used to specify whether the text should be underlined, overlined, or lined through?",
+      "answers": [
+        { "text": "text-line", "correct": false },
+        { "text": "text-decoration", "correct": true },
+        { "text": "text-style", "correct": false },
+        { "text": "font-decoration", "correct": false }
+      ]
+    },
+    {
+      "question": "Which CSS property is used to add shadow to elements?",
+      "answers": [
+        { "text": "box-shadow", "correct": true },
+        { "text": "shadow-box", "correct": false },
+        { "text": "text-shadow", "correct": false },
+        { "text": "element-shadow", "correct": false }
+      ]
+    },
+    {
+      "question": "Which CSS pseudo-class is used to style elements when they are hovered over by a mouse pointer?",
+      "answers": [
+        { "text": ":hover", "correct": true },
+        { "text": ":mouseover", "correct": false },
+        { "text": ":onhover", "correct": false },
+        { "text": ":focus", "correct": false }
+      ]
+    }
+  ]
+}
