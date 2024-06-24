@@ -1,0 +1,308 @@
+{
+  "title": "JavaScript Fundamentals Quiz",
+  "items": [
+    {
+      "question": "What is the correct syntax for referring to an external script called 'app.js'?",
+      "answers": [
+        { "text": "<script href=\"app.js\">", "correct": false },
+        { "text": "<script name=\"app.js\">", "correct": false },
+        { "text": "<script src=\"app.js\">", "correct": true },
+        { "text": "<script file=\"app.js\">", "correct": false }
+      ]
+    },
+    {
+      "question": "How do you write a conditional statement for executing some code if 'i' is NOT equal to 5?",
+      "answers": [
+        { "text": "if i <> 5", "correct": false },
+        { "text": "if (i !== 5)", "correct": true },
+        { "text": "if i =! 5 then", "correct": false },
+        { "text": "if (i <> 5)", "correct": false }
+      ]
+    },
+    {
+      "question": "How does a 'for' loop start?",
+      "answers": [
+        { "text": "for (let i = 0; i <= 5; i++)", "correct": true },
+        { "text": "for (i <= 5; i++)", "correct": false },
+        { "text": "for (i = 0; i <= 5)", "correct": false },
+        { "text": "for i = 1 to 5", "correct": false }
+      ]
+    },
+    {
+      "question": "How can you add a comment in a JavaScript?",
+      "answers": [
+        { "text": "'This is a comment", "correct": false },
+        { "text": "//This is a comment", "correct": true },
+        { "text": "<!--This is a comment-->", "correct": false },
+        { "text": "/* This is a comment */", "correct": true }
+      ]
+    },
+    {
+      "question": "What is the correct way to write a JavaScript array?",
+      "answers": [
+        {
+          "text": "let colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')",
+          "correct": false
+        },
+        { "text": "let colors = ['red', 'green', 'blue']", "correct": true },
+        {
+          "text": "let colors = (1:'red', 2:'green', 3:'blue')",
+          "correct": false
+        },
+        { "text": "let colors = 'red', 'green', 'blue'", "correct": false }
+      ]
+    },
+    {
+      "question": "What will the following code print out: <code>let x = 10; let y = 20; console.log(x < y)</code>",
+      "answers": [
+        { "text": "false", "correct": false },
+        { "text": "true", "correct": true },
+        { "text": "NaN", "correct": false },
+        { "text": "undefined", "correct": false }
+      ]
+    },
+    {
+      "question": "How do you declare a JavaScript variable?",
+      "answers": [
+        { "text": "v name;", "correct": false },
+        { "text": "variable name;", "correct": false },
+        { "text": "let name;", "correct": true },
+        { "text": "let name =;", "correct": false }
+      ]
+    },
+    {
+      "question": "Which operator is used to assign a value to a variable?",
+      "answers": [
+        { "text": "x", "correct": false },
+        { "text": "=", "correct": true },
+        { "text": "-", "correct": false },
+        { "text": "*", "correct": false }
+      ]
+    },
+    {
+      "question": "How do you select an element with the id 'demo' using JavaScript?",
+      "answers": [
+        { "text": "document.getElement('demo')", "correct": false },
+        { "text": "document.querySelector('#demo')", "correct": true },
+        { "text": "document.getElementById('demo')", "correct": true },
+        { "text": "document.select('#demo')", "correct": false }
+      ]
+    },
+    {
+      "question": "What method is used to add an element at the end of an array?",
+      "answers": [
+        { "text": "push()", "correct": true },
+        { "text": "pop()", "correct": false },
+        { "text": "end()", "correct": false },
+        { "text": "attach()", "correct": false }
+      ]
+    },
+    {
+      "question": "How do you create a new object in JavaScript?",
+      "answers": [
+        { "text": "let obj = new Object();", "correct": true },
+        { "text": "let obj = new obj();", "correct": false },
+        { "text": "let obj = {};", "correct": true },
+        { "text": "let obj = create Object();", "correct": false }
+      ]
+    },
+    {
+      "question": "Which method would you use to convert a JSON string into a JavaScript object?",
+      "answers": [
+        { "text": "JSON.fromString()", "correct": false },
+        { "text": "JSON.parse()", "correct": true },
+        { "text": "JSON.toObject()", "correct": false },
+        { "text": "JSON.stringify()", "correct": false }
+      ]
+    },
+    {
+      "question": "How do you round the number 7.25 to the nearest integer?",
+      "answers": [
+        { "text": "Math.round(7.25)", "correct": true },
+        { "text": "Math.ceil(7.25)", "correct": false },
+        { "text": "Math.floor(7.25)", "correct": false },
+        { "text": "round(7.25)", "correct": false }
+      ]
+    },
+    {
+      "question": "What does the 'push' method do in JavaScript?",
+      "answers": [
+        { "text": "Removes the last element from an array.", "correct": false },
+        {
+          "text": "Adds one or more elements to the end of an array and returns the new length of the array.",
+          "correct": true
+        },
+        { "text": "Combines two arrays into one.", "correct": false },
+        {
+          "text": "Searches for a specified element in an array and returns its index.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "How do you set the HTML content of an element in JavaScript?",
+      "answers": [
+        {
+          "text": "document.getElementById('myElement').html = 'New HTML content';",
+          "correct": false
+        },
+        {
+          "text": "document.getElementById('myElement').innerHTML = 'New HTML content';",
+          "correct": true
+        },
+        {
+          "text": "document.getElementById('myElement').setContent('New HTML content');",
+          "correct": false
+        },
+        {
+          "text": "document.getElementById('myElement').text = 'New HTML content';",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "Which JavaScript statement creates a new function?",
+      "answers": [
+        { "text": "let myFunc = new Function();", "correct": true },
+        { "text": "let myFunc = function() {};", "correct": true },
+        { "text": "function myFunc() {}", "correct": true },
+        { "text": "new createFunction('myFunc');", "correct": false }
+      ]
+    },
+    {
+      "question": "Which statement correctly declares a boolean variable in JavaScript?",
+      "answers": [
+        { "text": "let isTrue = 'true';", "correct": false },
+        { "text": "let isTrue = true;", "correct": true },
+        { "text": "boolean isTrue = true;", "correct": false },
+        { "text": "let isTrue = 1;", "correct": false }
+      ]
+    },
+    {
+      "question": "What method is used to add an event listener that specifies an element should only trigger a function once?",
+      "answers": [
+        {
+          "text": "element.onEvent('click', function, true)",
+          "correct": false
+        },
+        {
+          "text": "element.addEventListener('click', function, {once: true})",
+          "correct": true
+        },
+        {
+          "text": "element.addEventListener('click', function, true)",
+          "correct": false
+        },
+        {
+          "text": "element.addSingleEventListener('click', function)",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "What is the purpose of using the `fetch` function in JavaScript?",
+      "answers": [
+        { "text": "To send data to a server", "correct": false },
+        { "text": "To download images from a server", "correct": false },
+        {
+          "text": "To make HTTP requests and receive responses",
+          "correct": true
+        },
+        { "text": "To refresh the page", "correct": false }
+      ]
+    },
+    {
+      "question": "Which method is chained to a `fetch` call to format the response as JSON?",
+      "answers": [
+        { "text": "json()", "correct": true },
+        { "text": "parseJSON()", "correct": false },
+        { "text": "toJSON()", "correct": false },
+        { "text": "format()", "correct": false }
+      ]
+    },
+    {
+      "question": "What is a closure in JavaScript?",
+      "answers": [
+        { "text": "A function with preserved data.", "correct": true },
+        { "text": "A method used to close a function.", "correct": false },
+        {
+          "text": "A type of error that occurs when a function is undefined.",
+          "correct": false
+        },
+        {
+          "text": "A callback function passed to another function.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "What is the primary use of the `Promise` object in JavaScript?",
+      "answers": [
+        { "text": "To handle asynchronous operations.", "correct": true },
+        { "text": "To loop through items.", "correct": false },
+        { "text": "To store data temporarily.", "correct": false },
+        { "text": "To manipulate CSS styles.", "correct": false }
+      ]
+    },
+    {
+      "question": "Which statement correctly declares a JavaScript class named `Vehicle`?",
+      "answers": [
+        { "text": "class Vehicle {}", "correct": true },
+        { "text": "function Vehicle() {}", "correct": false },
+        { "text": "create class Vehicle {}", "correct": false },
+        { "text": "new class Vehicle {}", "correct": false }
+      ]
+    },
+    {
+      "question": "How do you create a new instance of a class named `Book` in JavaScript?",
+      "answers": [
+        { "text": "let myBook = Book();", "correct": false },
+        { "text": "let myBook = new Book();", "correct": true },
+        { "text": "let myBook = create Book();", "correct": false },
+        { "text": "let myBook = class Book();", "correct": false }
+      ]
+    },
+    {
+      "question": "Which feature of JavaScript Promises allows handling of both fulfillment and rejection?",
+      "answers": [
+        { "text": "then()", "correct": true },
+        { "text": "catch()", "correct": false },
+        { "text": "finally()", "correct": false },
+        { "text": "handle()", "correct": false }
+      ]
+    },
+    {
+      "question": "In JavaScript, what is a common use of closures?",
+      "answers": [
+        { "text": "To create private variables.", "correct": true },
+        { "text": "To terminate a loop.", "correct": false },
+        { "text": "To declare global variables.", "correct": false },
+        { "text": "To pass arguments to a function.", "correct": false }
+      ]
+    },
+    {
+      "question": "Which method is specifically used to handle rejected promises?",
+      "answers": [
+        { "text": "then()", "correct": false },
+        { "text": "catch()", "correct": true },
+        { "text": "error()", "correct": false },
+        { "text": "reject()", "correct": false }
+      ]
+    },
+    {
+      "question": "What is the result of using `async` before a function definition?",
+      "answers": [
+        { "text": "It makes the function return a promise.", "correct": true },
+        { "text": "It automatically executes the function.", "correct": false },
+        {
+          "text": "It ensures the function runs synchronously.",
+          "correct": false
+        },
+        {
+          "text": "It prevents errors in the function from being caught.",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}
