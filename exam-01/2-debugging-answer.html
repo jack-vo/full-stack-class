@@ -12,16 +12,16 @@
     <ul class="taskList"></ul>
 
     <script>
-        // Select Add button
-        let addTaskButton = document.querySelector('[data-component=add]');
+      // Select Add button
+      let addTaskButton = document.querySelector('[data-component=add]');
 
-        // Add click event to addTask
-        addTaskButton.addEventListener('click', addTask);
+      // Add click event to addTask
+      addTaskButton.addEventListener('click', addTask);
 
       // Function to add a new task from the input box
       function addTask() {
         // Select the input
-        let input = document.querySelector('taskInput');
+        let input = document.querySelector('#taskInput');
 
         // Get the value from the input
         let newTask = input.value;
@@ -30,11 +30,11 @@
         if (newTask) {
           let listItem = createTaskItem(newTask);
 
-          document.querySelector('taskList').appendChild(listItem);
+          document.querySelector('.taskList').appendChild(listItem);
           input.value = ''; // Clear the input after adding
         } else {
-            // throw alert if the input is empty
-          alert(['Please enter a task.');
+          // throw alert if the input is empty
+          alert('Please enter a task.');
         }
       }
 
@@ -43,23 +43,21 @@
         let listItem = document.createElement('li');
 
         listItem.innerHTML = `
-            $task}
+            ${task}
             <button data-component="delete">Delete</button>
         `;
 
         // Adding a delete button to the task
-        let deleteBtn = listItem.querySelector('[data-component="delete"]')
+        let deleteBtn = listItem.querySelector('[data-component="delete"]');
 
         // Event listener for deleting a task
-        // When calling this method, I want to remove the listItem from the page
-        deleteBtn.addEventListener(onDeleteButtonClik);
+        deleteBtn.addEventListener('click', onDeleteButtonClick);
 
         listItem.appendChild(deleteBtn);
 
         return listItem; // Return the new list item
       }
 
-      // Function to remove the <li> Todo item when the Delete button is clicked
       function onDeleteButtonClick(event) {
         // Get the current button
         let currentButton = event.target;
@@ -67,7 +65,7 @@
         let listItem = currentButton.parentElement;
 
         // remove the Todo <li> from the page
-        listItem.remo();
+        listItem.remove();
       }
 
       // Function to mark a task as completed
