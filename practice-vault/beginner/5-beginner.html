@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+    <style>
+      .container {
+        margin: 50px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+        background-color: #fff;
+        color: #007bff;
+        border: 1px solid #007bff;
+      }
+
+      .button:hover {
+        color: #fff;
+        background-color: #007bff;
+      }
+
+      .warning {
+        color: #d9792f;
+        border-color: #d9792f;
+      }
+
+      .warning:hover {
+        background-color: #d9792f;
+      }
+
+      .danger {
+        color: #ca2323;
+        border-color: #ca2323;
+      }
+
+      .danger:hover {
+        background-color: #ca2323;
+      }
+
+      .box {
+        margin: 20px auto;
+        width: 200px;
+        height: 200px;
+        background-color: #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .larger {
+        width: 300px;
+        height: 300px;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="button" data-action="background">
+        Change the box background to "red"
+      </button>
+      <button class="button warning" data-action="size">
+        Make the box becomes bigger
+      </button>
+      <button class="button danger" data-action="visibility">
+        Hide the box
+      </button>
+    </div>
+    <div class="box"></div>
+
+    <script>
+      let changeBgButton = document.querySelector('[data-action="background"]');
+      let changeSizeButton = document.querySelector('[data-action="size"]');
+      let changeVisibilityButton = document.querySelector(
+        '[data-action="visibility"]'
+      );
+      let theBox = document.querySelector('.box');
+      let onChangeBgButtonClicked = function () {
+        if (theBox.classList.contains('red')) {
+          theBox.classList.remove('red');
+          changeBgButton.innerHTML = 'Change the box background to "red"';
+        } else {
+          theBox.classList.add('red');
+          changeBgButton.innerHTML =
+            'Change the box background to default color';
+        }
+      };
+      let onChangeSizeButtonClicked = function () {
+        if (theBox.classList.contains('larger')) {
+          theBox.classList.remove('larger');
+          changeSizeButton.innerHTML = 'Make the box becomes bigger';
+        } else {
+          theBox.classList.add('larger');
+          changeSizeButton.innerHTML =
+            'Make the box goes back to its default size';
+        }
+      };
+      let onChangeVisibilityButtonClicked = function () {
+        if (theBox.classList.contains('hidden')) {
+          theBox.classList.remove('hidden');
+          changeVisibilityButton.innerHTML = 'Hide the box';
+        } else {
+          theBox.classList.add('hidden');
+          changeVisibilityButton.innerHTML = 'Show the box';
+        }
+      };
+
+      changeBgButton.addEventListener('click', onChangeBgButtonClicked);
+      changeSizeButton.addEventListener('click', onChangeSizeButtonClicked);
+      changeVisibilityButton.addEventListener(
+        'click',
+        onChangeVisibilityButtonClicked
+      );
+    </script>
+  </body>
+</html>

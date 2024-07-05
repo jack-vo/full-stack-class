@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+      }
+      .container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .button {
+        border: none;
+        border-radius: 0;
+        background-color: black;
+        color: #fff;
+        padding: 20px 60px;
+        font-size: 20px;
+      }
+
+      .button span {
+        padding: 5px;
+      }
+
+      .red {
+        background-color: red;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .yellow {
+        background-color: yellow;
+        color: white;
+      }
+      .green {
+        background-color: green;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .indigo {
+        background-color: indigo;
+        color: white;
+      }
+      .violet {
+        background-color: violet;
+      }
+    </style>
+  </head>
+  <body class="red">
+    <div class="container">
+      <button class="button">To <span class="orange">orange</span></button>
+    </div>
+    <script>
+      let body = document.body;
+      let changeColorButton = document.querySelector('.button');
+      let colorSpan = changeColorButton.querySelector('span');
+      let rainbowColors = [
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'indigo',
+        'violet',
+      ];
+      let onChangeColorButtonClicked = function () {
+        for (let i = 0; i < rainbowColors.length; i++) {
+          let currentRainbowColor = rainbowColors[i];
+
+          if (body.classList.contains(currentRainbowColor)) {
+            let newIndex = i + 1;
+
+            // the current index is the last index then it means there is no next color to pick
+            // go back to the first color
+            if (newIndex === rainbowColors.length) {
+              newIndex = 0;
+            }
+
+            let newColor = rainbowColors[newIndex];
+
+            // Apply new color to our body
+            body.classList.remove(currentRainbowColor);
+            body.classList.add(newColor);
+            // Reset the badge color
+            colorSpan.classList.remove(newColor);
+
+            // We still need to display the text of the color after
+            let nextColorIndex = newIndex + 1;
+
+            // the index is the last index then it means there is no next color to pick
+            // go back to the first color
+            if (nextColorIndex === rainbowColors.length) {
+              nextColorIndex = 0;
+            }
+
+            let nextColor = rainbowColors[nextColorIndex];
+
+            colorSpan.classList.add(nextColor);
+            colorSpan.innerHTML = nextColor;
+
+            // Exit the loop as we have found the color we want
+            break;
+          }
+        }
+      };
+
+      changeColorButton.addEventListener('click', onChangeColorButtonClicked);
+    </script>
+  </body>
+</html>
