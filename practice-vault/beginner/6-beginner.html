@@ -67,45 +67,43 @@
         'indigo',
         'violet',
       ];
+      // The span will hold the color we should change the body to
+      // so we should remove the body classname first
+      // then add the classname from the span to the body
+      // After that, we need to figure out the next color classname based
+      // on the current color classname of the span and set the span color
+      // classname to it
       let onChangeColorButtonClicked = function () {
-        for (let i = 0; i < rainbowColors.length; i++) {
-          let currentRainbowColor = rainbowColors[i];
+        let currentBodyClassName = body.className;
+        let currentSpanClassName = colorSpan.className;
 
-          if (body.classList.contains(currentRainbowColor)) {
-            let newIndex = i + 1;
+        // remove current color classname from body
+        body.classList.remove(currentBodyClassName);
 
-            // the current index is the last index then it means there is no next color to pick
-            // go back to the first color
-            if (newIndex === rainbowColors.length) {
-              newIndex = 0;
-            }
+        // apply the current span classname to the body
+        body.classList.add(currentSpanClassName);
 
-            let newColor = rainbowColors[newIndex];
+        // get the next color classname by getting the index
+        // of the current color
+        let currentSpanColorIndex = rainbowColors.indexOf(currentSpanClassName);
 
-            // Apply new color to our body
-            body.classList.remove(currentRainbowColor);
-            body.classList.add(newColor);
-            // Reset the badge color
-            colorSpan.classList.remove(newColor);
+        // the next color is the color after the currentSpanColorIndex in the array
+        let nextColorIndex = currentSpanColorIndex + 1;
 
-            // We still need to display the text of the color after
-            let nextColorIndex = newIndex + 1;
-
-            // the index is the last index then it means there is no next color to pick
-            // go back to the first color
-            if (nextColorIndex === rainbowColors.length) {
-              nextColorIndex = 0;
-            }
-
-            let nextColor = rainbowColors[nextColorIndex];
-
-            colorSpan.classList.add(nextColor);
-            colorSpan.innerHTML = nextColor;
-
-            // Exit the loop as we have found the color we want
-            break;
-          }
+        // but if the next index is the last item in the array (violet) then we should
+        // set it back to 0
+        if (nextColorIndex === rainbowColors.length - 1) {
+          nextColorIndex = 0;
         }
+
+        let nextColorClassname = rainbowColors[nextColorIndex];
+
+        // Remove current classname
+        colorSpan.classList.remove(currentSpanClassName);
+        // add new classname
+        colorSpan.classList.add(nextColorClassname);
+        // change the text to the new classname
+        colorSpan.innerHTML = nextColorClassname;
       };
 
       changeColorButton.addEventListener('click', onChangeColorButtonClicked);
