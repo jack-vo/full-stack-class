@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Print Names from Array</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+      }
+      .button {
+        padding: 20px 30px;
+        border-radius: 0;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+      .container {
+        max-width: 500px;
+        margin: 20px auto;
+        background: white;
+        padding: 20px;
+      }
+      .list {
+        margin-top: 20px;
+        padding: 50px;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+      }
+      .list-item {
+        width: 200px;
+        padding: 30px;
+        text-align: center;
+      }
+      .shadow {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        box-shadow: 8px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container shadow">
+      <h2>List of Names</h2>
+      <button class="button">Print Names</button>
+    </div>
+    <ul class="list"></ul>
+
+    <script>
+      // Define an array of names
+      let names = ['Alice', 'Bob', 'Charlie', 'Diana', 'Edward'];
+      let button = document.querySelector('.button');
+      let list = document.querySelector('.list');
+      let onButtonClicked = function () {
+        let items = [];
+
+        for (let i = 0; i < names.length; i++) {
+          let currentName = names[i];
+
+          items.push(`<li class="list-item shadow">${currentName}</li>`);
+        }
+
+        let allItemsContent = items.join('');
+
+        list.innerHTML = allItemsContent;
+      };
+
+      button.addEventListener('click', onButtonClicked);
+    </script>
+  </body>
+</html>

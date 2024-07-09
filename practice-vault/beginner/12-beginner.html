@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Print Names from Array</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+      }
+      .button {
+        width: 200px;
+        height: 50px;
+        border-radius: 0;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+      .button:hover {
+        background-color: #ccc;
+      }
+      .container {
+        max-width: 500px;
+        margin: 20px auto;
+        background: white;
+        padding: 20px;
+      }
+      .form {
+        display: flex;
+        gap: 10px;
+      }
+      .input {
+        height: 43px;
+        flex: 1;
+        text-indent: 10px;
+        font-size: 16px;
+      }
+      .list {
+        margin-top: 20px;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .list-item {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>List of Names</h2>
+      <div class="form">
+        <input
+          class="input"
+          min="0"
+          max="999"
+          placeholder="Number"
+          type="number" />
+        <button class="button">Print</button>
+      </div>
+      <ul class="list"></ul>
+    </div>
+
+    <script>
+      let button = document.querySelector('.button');
+      let input = document.querySelector('.input');
+      let list = document.querySelector('.list');
+      let onButtonClicked = function () {
+        let number = Number(input.value);
+
+        if (number > 0) {
+          let items = [];
+
+          for (let i = 1; i <= number; i++) {
+            items.push(`<li class="list-item">${i}</li>`);
+          }
+
+          let allItemsContent = items.join('');
+
+          list.innerHTML = allItemsContent;
+        } else {
+          alert('You need to input an positive number');
+        }
+      };
+
+      button.addEventListener('click', onButtonClicked);
+    </script>
+  </body>
+</html>
