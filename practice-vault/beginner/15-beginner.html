@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+    <style>
+      .box-container {
+        margin: 10px auto;
+        width: 700px;
+        height: 500px;
+        position: relative;
+        border: 2px dashed #666;
+      }
+
+      .box {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-container">
+      <div class="box"></div>
+    </div>
+
+    <script>
+      let boxContainer = document.querySelector('.box-container');
+      let boxContainerWidth = boxContainer.clientWidth;
+      let boxContainerHeight = boxContainer.clientHeight;
+      let theBox = document.querySelector('.box');
+      let boxSize = theBox.clientWidth;
+      let position = {
+        top: 0,
+        left: 0,
+      };
+      let acceptedKeys = ['ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'];
+      let onKeydown = function (event) {
+        let key = event.key;
+
+        if (acceptedKeys.includes(key)) {
+          let newTop = position.top;
+          let newLeft = position.left;
+
+          if (key === 'ArrowUp') {
+            newTop = newTop - 10;
+          } else if (key === 'ArrowRight') {
+            newLeft = newLeft + 10;
+          } else if (key === 'ArrowDown') {
+            newTop = newTop + 10;
+          } else if (key === 'ArrowLeft') {
+            newLeft = newLeft - 10;
+          }
+
+          // Check if the new position is valid or not
+          // if not, reset it to the last possible values
+          if (newLeft < 0) {
+            newLeft = 0;
+          } else if (newLeft + boxSize > boxContainerWidth) {
+            newLeft = boxContainerWidth - boxSize;
+          }
+
+          if (newTop < 0) {
+            newTop = 0;
+          } else if (newTop + boxSize > boxContainerHeight) {
+            newTop = boxContainerHeight - boxSize;
+          }
+
+          position.left = newLeft;
+          position.top = newTop;
+
+          theBox.style.top = `${position.top}px`;
+          theBox.style.left = `${position.left}px`;
+        }
+      };
+
+      document.addEventListener('keydown', onKeydown);
+    </script>
+  </body>
+</html>

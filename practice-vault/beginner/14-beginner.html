@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML Template</title>
+    <style>
+      .control-container {
+        margin: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+      }
+      .button {
+        width: 80px;
+        height: 80px;
+        font-size: 16px;
+        background-color: #eee;
+        border: 1px solid #666;
+      }
+
+      .button:hover {
+        background-color: #d6d6d6;
+      }
+
+      .box-container {
+        margin: 10px auto;
+        width: 700px;
+        height: 500px;
+        position: relative;
+        border: 2px dashed #666;
+      }
+
+      .box {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="control-container">
+      <button class="button" data-direction="up">Up</button>
+      <div>
+        <button class="button" data-direction="left">Left</button>
+        <button class="button" data-direction="down">Down</button>
+        <button class="button" data-direction="right">Right</button>
+      </div>
+    </div>
+    <div class="box-container">
+      <div class="box"></div>
+    </div>
+
+    <script>
+      let theBox = document.querySelector('.box');
+      let allButtons = document.querySelectorAll('button');
+      let position = {
+        top: 0,
+        left: 0,
+      };
+      let onButtonClicked = function (event) {
+        let button = event.target;
+        let direction = button.getAttribute('data-direction');
+
+        if (direction === 'up') {
+          position.top = position.top - 10;
+        } else if (direction === 'right') {
+          position.left = position.left + 10;
+        } else if (direction === 'down') {
+          position.top = position.top + 10;
+        } else if (direction === 'left') {
+          position.left = position.left - 10;
+        }
+
+        theBox.style.top = `${position.top}px`;
+        theBox.style.left = `${position.left}px`;
+      };
+
+      for (let i = 0; i < allButtons.length; i++) {
+        let button = allButtons[i];
+        button.addEventListener('click', onButtonClicked);
+      }
+    </script>
+  </body>
+</html>
