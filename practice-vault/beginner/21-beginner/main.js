@@ -1,5 +1,31 @@
 import CountrySelection from './countrySelection.js';
 
-let countries = [];
+let countries = [
+  {
+    name: {
+      common: 'Australia',
+    },
+    flag: '🇦🇺',
+  },
+  {
+    name: {
+      common: 'Germany',
+    },
+    flag: '🇩🇪',
+  },
+  {
+    name: {
+      common: 'Japan',
+    },
+    flag: '🇯🇵',
+  },
+];
 
-let counterApp = new Counter(document.querySelector('#app'));
+let onCountrySelectionChange = function (selectedCountry) {
+  alert(`Selected country is "${selectedCountry.name.common}"`);
+};
+let countrySelection = new CountrySelection(
+  document.querySelector('#app'),
+  countries,
+  onCountrySelectionChange
+);
