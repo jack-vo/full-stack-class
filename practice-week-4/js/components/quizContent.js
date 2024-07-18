@@ -1,3 +1,12 @@
+function escapeHTML(html) {
+  return html
+    .replace(/&/g, '&amp;') // Replace "&" with "&amp;"
+    .replace(/</g, '&lt;') // Replace "<" with "&lt;"
+    .replace(/>/g, '&gt;') // Replace ">" with "&gt;"
+    .replace(/"/g, '&quot;') // Replace "\"" with "&quot;"
+    .replace(/'/g, '&#039;'); // Replace "'" with "&#039;"
+}
+
 class QuizContent {
   #container;
   #data;
@@ -35,8 +44,9 @@ class QuizContent {
 
       for (let answerIndex = 0; answerIndex < answers.length; answerIndex++) {
         let currentAnswer = answers[answerIndex];
+        let answerText = escapeHTML(currentAnswer.text);
 
-        answersContent += `<button class="btn btn-outline-secondary d-block" data-answer="${answerIndex}">${currentAnswer.text}</button>`;
+        answersContent += `<button class="btn btn-outline-secondary d-block" data-answer="${answerIndex}">${answerText}</button>`;
       }
 
       content += `
