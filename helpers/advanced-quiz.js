@@ -21,11 +21,15 @@ class AdvanvedQuizApp extends QuizApp {
       options[i].remove();
     }
 
-    quizSelection.innerHTML = this.#options.items
+    let content = this.#options.items
       .map((item) => {
         return `<option value="${item.value}">${item.label}</option>`;
       })
       .join('');
+
+    content = '<option>Select your exam</option>' + content;
+
+    quizSelection.innerHTML = content;
   }
 }
 
