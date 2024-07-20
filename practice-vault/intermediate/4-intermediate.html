@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Print Names from Array</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+      }
+      .button {
+        padding: 20px 30px;
+        border-radius: 0;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+      .container {
+        max-width: 500px;
+        margin: 20px auto;
+        background: white;
+        padding: 20px;
+      }
+      .list {
+        margin-top: 20px;
+        padding: 50px;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+      }
+      .list-item {
+        width: 400px;
+        padding: 30px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .list-item img {
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        border: 1px solid #eee;
+      }
+
+      .list-item-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      .shadow {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        box-shadow: 8px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container shadow">
+      <h2>List of IT Profiles</h2>
+      <button class="button">Print IT Profiles</button>
+    </div>
+    <ul class="list"></ul>
+
+    <script>
+      // Define an array of profiles
+      const profiles = [
+        {
+          fullName: 'Alice Johnson',
+          gender: 'Female',
+          occupation: 'Web Developer',
+          avatar: {
+            images: {
+              large:
+                'https://t3.ftcdn.net/jpg/05/98/48/88/360_F_598488869_fiLUgajDxyaoxE9D3SuHMZfD56IjrBXe.jpg',
+            },
+          },
+        },
+        {
+          fullName: 'Bob Smith',
+          gender: 'Male',
+          occupation: 'Graphic Designer',
+          avatar: {
+            images: {
+              large:
+                'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
+            },
+          },
+        },
+        {
+          fullName: 'Carol White',
+          gender: 'Female',
+          occupation: 'Project Manager',
+          avatar: {
+            images: {
+              large:
+                'https://t3.ftcdn.net/jpg/05/98/48/88/360_F_598488869_fiLUgajDxyaoxE9D3SuHMZfD56IjrBXe.jpg',
+            },
+          },
+        },
+        {
+          fullName: 'Dave Brown',
+          gender: 'Male',
+          occupation: 'Software Engineer',
+          avatar: {
+            images: {
+              large:
+                'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
+            },
+          },
+        },
+      ];
+
+      const button = document.querySelector('.button');
+      const list = document.querySelector('.list');
+      const onButtonClicked = function () {
+        const itProfiles = profiles.filter(
+          (profile) =>
+            profile.occupation === 'Software Engineer' ||
+            profile.occupation === 'Web Developer'
+        );
+        const items = itProfiles.map((profile) => {
+          return `
+            <li class="list-item shadow">
+              <img src="${profile.avatar.images.large}"/>
+              <div class="list-item-content">
+                <div><span class="bold">Name</span> ${profile.fullName}</div>
+                <div><span class="bold">Gender</span> ${profile.gender}</div>
+                <div><span class="bold">Occupation</span> ${profile.occupation}</div>
+              </div>
+            </li>
+          `;
+        });
+
+        const allItemsContent = items.join('');
+
+        list.innerHTML = allItemsContent;
+      };
+
+      button.addEventListener('click', onButtonClicked);
+    </script>
+  </body>
+</html>

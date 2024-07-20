@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Print Names from Array</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+      }
+      .button {
+        width: 200px;
+        height: 50px;
+        border-radius: 0;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+      .button:hover {
+        background-color: #ccc;
+      }
+      .container {
+        max-width: 500px;
+        margin: 20px auto;
+        background: white;
+        padding: 20px;
+      }
+      .form {
+        display: flex;
+        gap: 10px;
+      }
+      .input {
+        height: 43px;
+        flex: 1;
+        text-indent: 10px;
+        font-size: 16px;
+      }
+      .list {
+        margin-top: 20px;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .list-item {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>List of Numbers larger than 10</h2>
+      <button class="button">Print</button>
+
+      <ul class="list"></ul>
+    </div>
+
+    <script>
+      const button = document.querySelector('.button');
+      const list = document.querySelector('.list');
+      const numbers = [34, 5, -10, 23, 11, 86, 26, 8, 7, 6, 4, 10, 11, 53, 43];
+      const onButtonClicked = function () {
+        const numbersLargerThanTen = numbers.filter((number) => number > 10);
+        const items = numbersLargerThanTen.map(
+          (number) => `<li class="list-item">${number}</li>`
+        );
+
+        const allItemsContent = items.join('');
+
+        list.innerHTML = allItemsContent;
+      };
+
+      button.addEventListener('click', onButtonClicked);
+    </script>
+  </body>
+</html>
