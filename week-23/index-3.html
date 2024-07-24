@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Async Await</title>
+  </head>
+  <body>
+    <select class="countries-selection"></select>
+    <script>
+      const selection = document.querySelector('.countries-selection');
+      const loadCountries = async () => {
+          const response = await fetch('https://restcountries.com/v3.1/all');
+          const countries = await response.json();
+
+          return countries;
+      };
+
+      const countries = await loadCountries();
+      const options = countries.map((country) => `<option value="${country.name.common}">${country.flag} ${country.name.common}</option>`);
+      const allOptionContent = options.join('');
+
+      selection.innerHTML = allOptionContent;
+    </script>
+  </body>
+</html>
