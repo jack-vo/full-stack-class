@@ -41,7 +41,16 @@ jobs:
           yarn build
           rm -rf .turbo
           rm -rf node_modules
-          find ./workspace -type d -not -path "./workspace/apps/*/dist/*" -not -path "./workspace/apps/*/dist" -exec rm -rf '{}' +
+          rm -rf .idea
+          rm -rf .vscode
+          rm -rf .prettierrc
+          rm -rf turbo.json
+          rm -rf yarn.lock
+          rm -rf package.json
+          rm -rf templates
+          rsync -Rr $(find ./workspace/apps -type d -name dist) temp_workspace
+          rm -rf workspace
+          mv temp_workspace workspace
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
