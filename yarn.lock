@@ -244,6 +244,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@rollup/rollup-darwin-arm64@^4.20.0":
+  version "4.20.0"
+  resolved "https://registry.yarnpkg.com/@rollup/rollup-darwin-arm64/-/rollup-darwin-arm64-4.20.0.tgz#25f3d57b1da433097cfebc89341b355901615763"
+  integrity sha512-uFVfvzvsdGtlSLuL0ZlvPJvl6ZmrH4CBwLGEFPe7hUmf7htGAN+aXo43R/V6LATyxlKVC/m6UsLb7jbG+LG39Q==
+
 "@trysound/sax@0.2.0":
   version "0.2.0"
   resolved "https://registry.npmjs.org/@trysound/sax/-/sax-0.2.0.tgz"
@@ -920,6 +925,30 @@ esbuild@^0.21.3:
   version "0.21.5"
   resolved "https://registry.npmjs.org/esbuild/-/esbuild-0.21.5.tgz"
   integrity sha512-mg3OPMV4hXywwpoDxu3Qda5xCKQi+vCTZq8S9J/EpkhB2HzKXq4SNFZE3+NK93JYxc8VMSep+lOUSC/RVKaBqw==
+  optionalDependencies:
+    "@esbuild/aix-ppc64" "0.21.5"
+    "@esbuild/android-arm" "0.21.5"
+    "@esbuild/android-arm64" "0.21.5"
+    "@esbuild/android-x64" "0.21.5"
+    "@esbuild/darwin-arm64" "0.21.5"
+    "@esbuild/darwin-x64" "0.21.5"
+    "@esbuild/freebsd-arm64" "0.21.5"
+    "@esbuild/freebsd-x64" "0.21.5"
+    "@esbuild/linux-arm" "0.21.5"
+    "@esbuild/linux-arm64" "0.21.5"
+    "@esbuild/linux-ia32" "0.21.5"
+    "@esbuild/linux-loong64" "0.21.5"
+    "@esbuild/linux-mips64el" "0.21.5"
+    "@esbuild/linux-ppc64" "0.21.5"
+    "@esbuild/linux-riscv64" "0.21.5"
+    "@esbuild/linux-s390x" "0.21.5"
+    "@esbuild/linux-x64" "0.21.5"
+    "@esbuild/netbsd-x64" "0.21.5"
+    "@esbuild/openbsd-x64" "0.21.5"
+    "@esbuild/sunos-x64" "0.21.5"
+    "@esbuild/win32-arm64" "0.21.5"
+    "@esbuild/win32-ia32" "0.21.5"
+    "@esbuild/win32-x64" "0.21.5"
 
 escalade@^3.1.2:
   version "3.1.2"
@@ -1908,6 +1937,22 @@ rollup@^4.13.0:
   dependencies:
     "@types/estree" "1.0.5"
   optionalDependencies:
+    "@rollup/rollup-android-arm-eabi" "4.19.0"
+    "@rollup/rollup-android-arm64" "4.19.0"
+    "@rollup/rollup-darwin-arm64" "4.19.0"
+    "@rollup/rollup-darwin-x64" "4.19.0"
+    "@rollup/rollup-linux-arm-gnueabihf" "4.19.0"
+    "@rollup/rollup-linux-arm-musleabihf" "4.19.0"
+    "@rollup/rollup-linux-arm64-gnu" "4.19.0"
+    "@rollup/rollup-linux-arm64-musl" "4.19.0"
+    "@rollup/rollup-linux-powerpc64le-gnu" "4.19.0"
+    "@rollup/rollup-linux-riscv64-gnu" "4.19.0"
+    "@rollup/rollup-linux-s390x-gnu" "4.19.0"
+    "@rollup/rollup-linux-x64-gnu" "4.19.0"
+    "@rollup/rollup-linux-x64-musl" "4.19.0"
+    "@rollup/rollup-win32-arm64-msvc" "4.19.0"
+    "@rollup/rollup-win32-ia32-msvc" "4.19.0"
+    "@rollup/rollup-win32-x64-msvc" "4.19.0"
     fsevents "~2.3.2"
 
 safe-array-concat@^1.1.2:

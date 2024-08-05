@@ -7,13 +7,15 @@
     "author": "Jack Vo <jackvo.au@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "server:start": "yarn http-server --cors"
+        "server:start": "yarn http-server --cors",
+        "build": "turbo run build"
     },
     "stackblitz": {
         "installDependencies": true,
         "startCommand": "yarn run server:start"
     },
     "devDependencies": {
+        "@rollup/rollup-darwin-arm64": "^4.20.0",
         "http-server": "^14.1.1",
         "turbo": "^2",
         "typescript": "^5",
@@ -24,5 +26,6 @@
         "workspace/apps/**/*",
         "workspace/packages/*"
     ],
-    "dependencies": {}
+    "dependencies": {},
+    "packageManager": "yarn@1.22.21"
 }
