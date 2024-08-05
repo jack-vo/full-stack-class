@@ -50,7 +50,8 @@ jobs:
           rm -rf templates
           rsync -Rr $(find ./workspace/apps -type d -name dist) temp_workspace
           rm -rf workspace
-          mv temp_workspace workspace
+          mv temp_workspace/workspace ./
+          rm -rf temp_workspace
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
