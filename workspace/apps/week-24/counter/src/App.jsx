@@ -27,8 +27,8 @@ function App(props) {
                 </button>
             </div>
             <div className="muted">
-                Min: {min}
-                Max: {max}
+                <div>Min: {min}</div>
+                <div>Max: {max}</div>
             </div>
         </div>
     );
