@@ -8,6 +8,7 @@
     "license": "MIT",
     "scripts": {
         "server:start": "yarn http-server --cors",
+        "practice:beginner:storybook": "turbo run storybook --filter=unpublished-practice-vault-beginner-storybook",
         "build": "turbo run build"
     },
     "stackblitz": {
@@ -16,6 +17,7 @@
     },
     "devDependencies": {
         "http-server": "^14.1.1",
+        "prettier": "^3.3.3",
         "turbo": "^2",
         "typescript": "^5",
         "vite": "^5",

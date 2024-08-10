@@ -6,6 +6,10 @@
             "persistent": true,
             "dependsOn": ["^build"],
             "outputs": []
+        },
+        "storybook": {
+            "cache": true,
+            "persistent": true
         }
     }
 }
