@@ -1,0 +1,11 @@
+.answer-link {
+    padding: 10px 20px;
+    background-color: #222;
+    color: #fff;
+    text-decoration: none;
+    position: fixed;
+    font-size: 1.1em;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}

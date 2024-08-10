@@ -22,17 +22,28 @@ function Template(props) {
         }
     }, [props.name]);
 
-    return <Component />;
+    return (
+        <>
+            <Component />
+            <a
+                className="answer-link"
+                target="_blank"
+                href={`https://github.com/jack-vo/full-stack-class/tree/main/workspace/packages/practice-vault-beginner/src/answers/${props.name}`}
+            >
+                Practice Item Answer
+            </a>
+        </>
+    );
 }
 
-export const Item1Answer = {
+export const Item1 = {
     render: () => <Template name="item-1" Component={AllItems.Item1} />,
 };
 
-export const Item2Answer = {
+export const Item2 = {
     render: () => <Template name="item-2" Component={AllItems.Item2} />,
 };
 
-export const Item3Answer = {
+export const Item3 = {
     render: () => <Template name="item-3" Component={AllItems.Item3} />,
 };
