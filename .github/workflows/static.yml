@@ -40,7 +40,6 @@ jobs:
           yarn install
           yarn build
           rm -rf .turbo
-          rm -rf node_modules
           rm -rf .idea
           rm -rf .vscode
           rm -rf .prettierrc
@@ -48,6 +47,7 @@ jobs:
           rm -rf yarn.lock
           rm -rf package.json
           rm -rf templates
+          find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
           rsync -Rr $(find ./workspace/apps -type d -name dist) temp_workspace
           rm -rf workspace
           mv temp_workspace/workspace ./
