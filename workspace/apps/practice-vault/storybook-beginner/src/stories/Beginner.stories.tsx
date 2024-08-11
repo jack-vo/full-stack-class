@@ -47,3 +47,15 @@ export const Item2 = {
 export const Item3 = {
     render: () => <Template name="item-3" Component={AllItems.Item3} />,
 };
+
+export const Item4 = {
+    render: () => <Template name="item-4" Component={AllItems.Item4} />,
+};
+
+export const Item5 = {
+    render: () => <Template name="item-5" Component={AllItems.Item5} />,
+};
+
+export const Item6 = {
+    render: () => <Template name="item-6" Component={AllItems.Item6} />,
+};

@@ -13,14 +13,15 @@
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@turbo/gen": "^1",
-    "@types/node": "^20",
     "@types/eslint": "^8",
+    "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "typescript": "^5"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "react": "^18.2.0"
   }
 }

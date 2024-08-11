@@ -1,0 +1,43 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button {
+    border: none;
+    border-radius: 0;
+    background-color: black;
+    color: #fff;
+    padding: 20px 60px;
+    font-size: 20px;
+}
+
+.button span {
+    padding: 5px;
+}
+
+.red {
+    background-color: red;
+}
+.orange {
+    background-color: orange;
+}
+.yellow {
+    background-color: yellow;
+    color: white;
+}
+.green {
+    background-color: green;
+}
+.blue {
+    background-color: blue;
+}
+.indigo {
+    background-color: indigo;
+    color: white;
+}
+.violet {
+    background-color: violet;
+}
