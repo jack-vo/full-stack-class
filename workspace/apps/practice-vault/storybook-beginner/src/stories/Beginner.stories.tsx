@@ -18,8 +18,16 @@ function Template(props) {
     useEffect(() => {
         const html = document.querySelector('html');
         if (html) {
+            html.setAttribute('data-component', 'practice-vault-storybook');
             html.setAttribute('data-item', props.name);
         }
+
+        return () => {
+            if (html) {
+                html.removeAttribute('data-component');
+                html.removeAttribute('data-item');
+            }
+        };
     }, [props.name]);
 
     return (
@@ -58,4 +66,16 @@ export const Item5 = {
 
 export const Item6 = {
     render: () => <Template name="item-6" Component={AllItems.Item6} />,
+};
+
+export const Item7 = {
+    render: () => <Template name="item-7" Component={AllItems.Item7} />,
+};
+
+export const Item8 = {
+    render: () => <Template name="item-8" Component={AllItems.Item8} />,
+};
+
+export const Item9 = {
+    render: () => <Template name="item-9" Component={AllItems.Item9} />,
 };

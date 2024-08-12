@@ -4,3 +4,6 @@ export { default as Item3 } from './answers/item-3/App';
 export { default as Item4 } from './answers/item-4/App';
 export { default as Item5 } from './answers/item-5/App';
 export { default as Item6 } from './answers/item-6/App';
+export { default as Item7 } from './answers/item-7/App';
+export { default as Item8 } from './answers/item-8/App';
+export { default as Item9 } from './answers/item-9/App';

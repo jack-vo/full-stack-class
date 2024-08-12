@@ -5,7 +5,7 @@ module.exports = {
                 const match = filepath.match(/\/answers\/(item-\d+)\//);
 
                 if (match) {
-                    return `[data-item="${match[1]}"] ${selector}`;
+                    return `[data-component="practice-vault-storybook"][data-item="${match[1]}"] ${selector}`;
                 }
 
                 return rule;
