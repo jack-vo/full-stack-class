@@ -1,6 +1,5 @@
 import * as AllItems from '@repo/practice-vault-beginner';
-import { useEffect } from 'react';
-import AnswerLink from './components/AnswerLink.tsx';
+import Template from './components/PracticeItemTemplate';
 
 const meta = {
     title: 'Practice Vault - Beginner / Beginner',
