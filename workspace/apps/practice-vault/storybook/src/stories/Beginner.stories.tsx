@@ -1,5 +1,6 @@
 import * as AllItems from '@repo/practice-vault-beginner';
 import { useEffect } from 'react';
+import AnswerLink from './components/AnswerLink.tsx';
 
 const meta = {
     title: 'Practice Vault - Beginner / Beginner',
@@ -33,13 +34,11 @@ function Template(props) {
     return (
         <>
             <Component />
-            <a
-                className="answer-link"
-                target="_blank"
-                href={`https://github.com/jack-vo/full-stack-class/tree/main/workspace/packages/practice-vault-beginner/src/answers/${props.name}`}
-            >
-                Practice Item Answer
-            </a>
+            <AnswerLink
+                label="Practice Item Answer"
+                prefix="practice-vault/src/answers"
+                name={props.name}
+            />
         </>
     );
 }

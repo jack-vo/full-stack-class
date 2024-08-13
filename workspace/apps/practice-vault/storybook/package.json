@@ -1,10 +1,10 @@
 {
-  "name": "unpublished-practice-vault-beginner-storybook",
+  "name": "unpublished-practice-vault-storybook",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "storybook": "storybook dev -p 6006 --no-open",
+    "storybook": "storybook dev -p 6007 --no-open",
     "build": "storybook build -o dist",
     "lint": "eslint .",
     "preview": "vite preview"
