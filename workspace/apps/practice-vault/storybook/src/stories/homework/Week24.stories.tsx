@@ -1,5 +1,5 @@
 import * as Homework from '@repo/homework-answer';
-import Template from './HomeworkTemplate';
+import Template from '../components/HomeworkTemplate';
 
 const meta = {
     title: 'Homework Answers / Week 24',

@@ -13,36 +13,6 @@ const meta = {
 
 export default meta;
 
-function Template(props) {
-    const { Component } = props;
-
-    useEffect(() => {
-        const html = document.querySelector('html');
-        if (html) {
-            html.setAttribute('data-component', 'practice-vault-storybook');
-            html.setAttribute('data-item', props.name);
-        }
-
-        return () => {
-            if (html) {
-                html.removeAttribute('data-component');
-                html.removeAttribute('data-item');
-            }
-        };
-    }, [props.name]);
-
-    return (
-        <>
-            <Component />
-            <AnswerLink
-                label="Practice Item Answer"
-                prefix="practice-vault/src/answers"
-                name={props.name}
-            />
-        </>
-    );
-}
-
 export const Item1 = {
     render: () => <Template name="item-1" Component={AllItems.Item1} />,
 };
