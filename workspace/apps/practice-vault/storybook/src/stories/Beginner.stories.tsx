@@ -65,3 +65,27 @@ export const Item9 = {
         <PracticeVaultTemplate item="item-9" Component={AllItems.Item9} />
     ),
 };
+
+export const Item10 = {
+    render: () => (
+        <PracticeVaultTemplate item="item-10" Component={AllItems.Item10} />
+    ),
+};
+
+export const Item11 = {
+    render: () => (
+        <PracticeVaultTemplate item="item-11" Component={AllItems.Item11} />
+    ),
+};
+
+export const Item12 = {
+    render: () => (
+        <PracticeVaultTemplate item="item-12" Component={AllItems.Item12} />
+    ),
+};
+
+export const Item13 = {
+    render: () => (
+        <PracticeVaultTemplate item="item-13" Component={AllItems.Item13} />
+    ),
+};

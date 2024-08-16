@@ -7,3 +7,7 @@ export { default as Item6 } from './answers/item-6/App';
 export { default as Item7 } from './answers/item-7/App';
 export { default as Item8 } from './answers/item-8/App';
 export { default as Item9 } from './answers/item-9/App';
+export { default as Item10 } from './answers/item-10/App';
+export { default as Item11 } from './answers/item-11/App';
+export { default as Item12 } from './answers/item-12/App';
+export { default as Item13 } from './answers/item-13/App';
