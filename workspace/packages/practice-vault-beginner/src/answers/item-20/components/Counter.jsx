@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import './app.css';
+import './Counter.css';
 
-function App(props) {
+function Counter(props) {
     const { min, max } = props;
     const [count, setCount] = useState(0);
     const onDecreaseClicked = () => {
@@ -16,7 +16,7 @@ function App(props) {
     };
 
     return (
-        <div className="container">
+        <div className="counter">
             <div className="result">{count}</div>
             <div>
                 <button className="button" onClick={onDecreaseClicked}>
@@ -34,4 +34,4 @@ function App(props) {
     );
 }
 
-export default App;
+export default Counter;

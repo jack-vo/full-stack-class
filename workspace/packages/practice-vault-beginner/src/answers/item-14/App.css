@@ -1,0 +1,35 @@
+.control-container {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+.button {
+    width: 80px;
+    height: 80px;
+    font-size: 16px;
+    background-color: #eee;
+    border: 1px solid #666;
+}
+
+.button:hover {
+    background-color: #d6d6d6;
+}
+
+.box-container {
+    margin: 10px auto;
+    width: 700px;
+    height: 500px;
+    position: relative;
+    border: 2px dashed #666;
+}
+
+.box {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    top: 0;
+    left: 0;
+}
