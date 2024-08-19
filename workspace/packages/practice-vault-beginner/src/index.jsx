@@ -14,3 +14,6 @@ export { default as Item13 } from './answers/item-13/App';
 export { default as Item14 } from './answers/item-14/App';
 export { default as Item15 } from './answers/item-15/App';
 export { default as Item20 } from './answers/item-20/App';
+export { default as Item21 } from './answers/item-21/App';
+export { default as Item22 } from './answers/item-22/App';
+export { default as Item23 } from './answers/item-23/App';
