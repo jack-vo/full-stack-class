@@ -125,3 +125,9 @@ export const Item23 = {
         <PracticeVaultTemplate item="item-23" Component={AllItems.Item23} />
     ),
 };
+
+export const Item24 = {
+    render: () => (
+        <PracticeVaultTemplate item="item-24" Component={AllItems.Item24} />
+    ),
+};

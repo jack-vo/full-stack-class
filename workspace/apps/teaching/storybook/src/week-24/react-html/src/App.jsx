@@ -5,6 +5,7 @@ import Tasks from './components/Tasks';
 import AdvancedTasks from './components/AdvancedTasks.jsx';
 import Counter from './components/Counter.jsx';
 import AnimeDropdown from './components/AnimeDropdown.jsx';
+import InputBox from './components/InputBox.jsx';
 
 function App() {
     const items = [
@@ -37,10 +38,10 @@ function App() {
             <div>
                 <AdvancedTasks items={[]} />
             </div>
-            <div>
+            <div className="margin-top-40">
                 <Counter />
             </div>
-            <div>
+            <div className="margin-top-40">
                 <div>
                     <button onClick={onTopAnimeClick}>Load top anime</button>
                     <button onClick={onSportAnimeClick}>
@@ -48,6 +49,9 @@ function App() {
                     </button>
                 </div>
                 <AnimeDropdown requestUrl={animeRequestUrl} />
+            </div>
+            <div className="margin-top-40">
+                <InputBox />
             </div>
         </div>
     );
