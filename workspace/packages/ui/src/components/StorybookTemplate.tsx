@@ -3,7 +3,12 @@ import StorybookGithubLink from './StorybookGithubLink';
 
 type Props = {
     Component: any;
-    type: 'teaching' | 'homework' | 'practice';
+    type:
+        | 'teaching'
+        | 'homework'
+        | 'practice'
+        | 'monthly-exams'
+        | 'final-exams';
     path: string;
     prefix?: string;
     item: string;
@@ -78,6 +83,17 @@ export function HomeworkTemplate(
             prefix={props.prefix}
             item={props.item}
             path={`workspace/apps/teaching/storybook/src/${props.prefix}/homework/${props.item}`}
+        />
+    );
+}
+
+export function MonthlyExamTemplate(props: Pick<Props, 'Component' | 'item'>) {
+    return (
+        <StorybookTemplate
+            Component={props.Component}
+            type="monthly-exams"
+            item={props.item}
+            path={`workspace/apps/exams/storybook/src/monthly-exams/${props.item}/src`}
         />
     );
 }

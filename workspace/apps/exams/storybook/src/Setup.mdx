@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Exam Setup" />
+
+# Exam Setup
+
+## 1. Git
+- Make sure your `main` branch is clean. If not, commit and merge any outstanding work
+- From your `main` branch, create a new branch following convention `exam/{monthyear}`. Example: `exam/082024`
+
+
+## 2. Exam project setup
+- Create the folder `monthly-exams` if it does not exist
+- Setup
+```
+cd monthly-exams
+npm create vite@latest
+```
+- Project name: `your exam number` (Example: `exam-1`)
+- Select:
+- `React`
+- `Javascript`
+- Once the project is created, you can start running your project
+```
+cd [your exam number]
+npm install
+npm run dev
+```
+
+## 3. Exam submission
+- Once you are done with the exam, commit and push your branch to the remote repository
+```
+git add --all
+git commit
+git push origin [your branch name]
+```
+- Open GitHub and create a pull request
+- Send the link to your pull request to the instructor
+

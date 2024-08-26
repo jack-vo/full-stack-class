@@ -10,6 +10,7 @@
         "server:start": "yarn http-server --cors",
         "practice:storybook": "turbo run storybook --filter=unpublished-practice-vault-storybook",
         "teaching:storybook": "turbo run storybook --filter=unpublished-teaching-storybook",
+        "exam:storybook": "turbo run storybook --filter=unpublished-exam-storybook",
         "build": "turbo run build"
     },
     "stackblitz": {

@@ -1,0 +1,15 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as Stories from './exam-1.stories.jsx';
+
+<Meta title="Monthly Exams / Exam 1" />
+
+## Exam 1 - Instructions
+- Create a list of 6 buttons with the following text: `red`, `green`, `blue`, `purple`, `orange`, `black`.
+- When a button is clicked, the background color of the page should change to the color of the button.
+- The heading text should indicate the selected color like `Current color is: "red"`.
+
+## Score Criteria
+- Use CSS to set the background color for the container and the buttons
+- Use `Array.map` to create the buttons
+
+<Canvas layout="fullscreen" of={Stories.Exam1} />

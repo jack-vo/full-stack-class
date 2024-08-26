@@ -1,0 +1,11 @@
+.docs-story {
+    min-height: 500px;
+}
+
+.docs-story .answer-link {
+    display: none;
+}
+
+.docs-story .docblock-code-toggle {
+    display: none;
+}

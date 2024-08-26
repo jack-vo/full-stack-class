@@ -1,0 +1,49 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    padding-left: 50px;
+    color: white;
+}
+
+.buttons {
+    padding-top: 50px;
+    padding-left: 50px;
+    display: flex;
+    gap: 20px;
+}
+
+.button {
+    width: 80px;
+    height: 80px;
+    color: #fff;
+    border: 2px solid #eee;
+    font-size: 20px;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.black {
+    background-color: black;
+}
