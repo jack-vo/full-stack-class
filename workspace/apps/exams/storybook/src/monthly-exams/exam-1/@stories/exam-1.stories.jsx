@@ -13,5 +13,7 @@ const meta = {
 export default meta;
 
 export const Exam1 = {
-    render: () => <MonthlyExamTemplate item="exam-1" Component={App} />,
+    render: () => (
+        <MonthlyExamTemplate item="exam-1" Component={App} password="e4af5" />
+    ),
 };

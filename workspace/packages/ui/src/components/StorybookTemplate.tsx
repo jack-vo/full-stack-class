@@ -12,10 +12,12 @@ type Props = {
     path: string;
     prefix?: string;
     item: string;
+    label?: string;
+    password?: string;
 };
 
 export function StorybookTemplate(props: Props) {
-    const { Component, path, type, prefix, item } = props;
+    const { Component, path, type, prefix, item, password, label } = props;
 
     useEffect(() => {
         const html = document.querySelector('html');
@@ -41,7 +43,11 @@ export function StorybookTemplate(props: Props) {
     return (
         <>
             <Component />
-            <StorybookGithubLink label="GitHub Link" path={path} />
+            <StorybookGithubLink
+                label={label || 'GitHub Link'}
+                path={path}
+                password={password}
+            />
         </>
     );
 }
@@ -87,13 +93,17 @@ export function HomeworkTemplate(
     );
 }
 
-export function MonthlyExamTemplate(props: Pick<Props, 'Component' | 'item'>) {
+export function MonthlyExamTemplate(
+    props: Pick<Props, 'Component' | 'item'> & { password: string },
+) {
     return (
         <StorybookTemplate
             Component={props.Component}
             type="monthly-exams"
             item={props.item}
             path={`workspace/apps/exams/storybook/src/monthly-exams/${props.item}/src`}
+            label="Exam answer"
+            password={props.password}
         />
     );
 }

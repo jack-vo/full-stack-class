@@ -4,6 +4,7 @@ import './StorybookGithubLink.css';
 type Props = {
     label: string;
     path: string;
+    password?: string;
 };
 
 const style: CSSProperties = {
@@ -19,14 +20,25 @@ const style: CSSProperties = {
 };
 
 export default function StorybookGithubLink(props: Props) {
+    const { path, password } = props;
+    const link = `https://github.com/jack-vo/full-stack-class/tree/main/${path}`;
+    const onClick = () => {
+        if (password) {
+            const pwd = prompt('Enter the password');
+
+            if (pwd === password) {
+                window.open(link, '_blank');
+            } else {
+                alert('Invalid password');
+            }
+        } else {
+            window.open(link, '_blank');
+        }
+    };
+
     return (
-        <a
-            className="answer-link"
-            target="_blank"
-            href={`https://github.com/jack-vo/full-stack-class/tree/main/${props.path}`}
-            style={style}
-        >
+        <button className="answer-link" style={style} onClick={onClick}>
             {props.label}
-        </a>
+        </button>
     );
 }
