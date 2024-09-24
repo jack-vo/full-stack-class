@@ -35,11 +35,6 @@ const router = createBrowserRouter(
             </Route>
         </>,
     ),
-    {
-        basename: '/full-stack-class/week-30-sample-project/dist',
-    },
 );
-
-debugger;
 
 export default router;
