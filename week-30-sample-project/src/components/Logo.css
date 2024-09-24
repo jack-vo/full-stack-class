@@ -1,0 +1,12 @@
+.logo {
+    font-size: 30px;
+    color: #f8f8f8;
+    text-decoration: none;
+    padding: 10px 30px;
+    background-color: crimson;
+    font-weight: bold;
+}
+
+.logo.dark {
+    background-color: #333;
+}

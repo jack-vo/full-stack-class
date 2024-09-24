@@ -1,0 +1,10 @@
+.sidebar-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-posts .ant-card-meta-description {
+    overflow: hidden;
+    max-height: 90px;
+}

@@ -1,0 +1,30 @@
+.content-post {
+    margin-bottom: 20px;
+    display: flex;
+    max-height: 250px;
+    border-radius: 10px;
+    background-color: #0e0e0e;
+    overflow: hidden;
+}
+
+.content-post-image {
+    border-radius: 10px 0 0 10px;
+}
+
+.content-post .post-tag {
+    background-color: transparent;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.content-post-body {
+    padding: 20px;
+}
+
+.content-post-body .ant-typography {
+    color: white;
+}
+
+.content-post-body .content-post-title a {
+    color: white;
+}

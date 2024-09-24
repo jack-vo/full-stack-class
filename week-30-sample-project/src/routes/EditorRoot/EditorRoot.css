@@ -1,0 +1,73 @@
+.editor-container {
+    min-height: 100vh;
+}
+
+.editor-header {
+    height: 60px;
+}
+
+.editor-container .editor-sidebar {
+    background-color: #f5f5f5;
+}
+
+.editor-sidebar .ant-menu {
+    background-color: transparent;
+    border: none;
+}
+
+.ant-popover-content .ant-popover-inner-content .ant-menu {
+    border: none;
+}
+
+.ant-layout-sider-collapsed .logo {
+    color: transparent;
+}
+
+.editor-sidebar .ant-layout-sider-trigger {
+    border-top: 1px solid #d6d6d6;
+    background-color: transparent;
+}
+.editor-sidebar .ant-layout-sider-trigger .anticon {
+    color: crimson;
+}
+
+.editor-sidebar .ant-menu-item-selected {
+    background-color: #eee;
+    color: black;
+    font-weight: bold;
+}
+
+.editor-sidebar-logo-wrapper .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-size: 20px;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.editor-body {
+    background-color: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+.editor-content {
+    padding: 20px;
+}
+
+.editor-header-search {
+    max-width: 350px;
+}
+
+.editor-header-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
