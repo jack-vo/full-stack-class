@@ -1,0 +1,6 @@
+.cover {
+    background-image: url('https://images.unsplash.com/photo-1576005391034-242dd8f40823');
+    background-position: center center;
+    background-size: cover;
+    flex: 1;
+}
