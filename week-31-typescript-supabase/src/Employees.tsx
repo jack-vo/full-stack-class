@@ -31,6 +31,7 @@ export function Employees() {
 
     return (
         <div>
+            <h1>List of employees</h1>
             {employees.map((employee) => (
                 <li key={employee.id}>
                     #{employee.id} - {employee.name} -{' '}

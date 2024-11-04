@@ -1,14 +1,20 @@
 import { Employees } from './Employees.tsx';
 import { EmployeeDetails } from './EmployeeDetails.tsx';
 import { EmployeeForm } from './EmployeeForm.tsx';
+import { EmployeeAuth } from './EmployeeAuth.tsx';
+import { Authenticated } from './Authenticated.tsx';
+import { Logout } from './Logout.tsx';
 
 function App() {
     return (
         <div>
-            <h1>List of employees</h1>
-            <Employees />
-            <EmployeeDetails id={1} />
-            <EmployeeForm />
+            <Logout />
+            <Authenticated>
+                <Employees />
+                <EmployeeDetails id={1} />
+                <EmployeeForm />
+            </Authenticated>
+            <EmployeeAuth />
         </div>
     );
 }
