@@ -3,7 +3,13 @@ import { useEffect, useState } from 'react';
 import supabase from '../../utils/supabase.ts';
 import { Session } from '@supabase/supabase-js';
 import { Button, Card, Form, Input, notification } from 'antd';
-import styles from './onboarding.module.css';
+import styles from './OnboardingPage.module.css';
+
+type OnboardingFieldType = {
+    firstname: string;
+    lastname: string;
+    email: string;
+};
 
 export function OnboardingPage() {
     const [session, setSession] = useState<Session | null>(null);
@@ -13,7 +19,7 @@ export function OnboardingPage() {
         lastname: '',
         email: session?.user.email || '',
     };
-    const onFormFinish = (values) => {
+    const onFormFinish = (values: OnboardingFieldType) => {
         supabase
             .rpc('upsert_user', {
                 user_id: session?.user.id,
@@ -52,7 +58,7 @@ export function OnboardingPage() {
                     initialValues={initialValues}
                     onFinish={onFormFinish}
                 >
-                    <Form.Item
+                    <Form.Item<OnboardingFieldType>
                         name="firstname"
                         label="First name"
                         rules={[
@@ -65,7 +71,7 @@ export function OnboardingPage() {
                     >
                         <Input />
                     </Form.Item>
-                    <Form.Item
+                    <Form.Item<OnboardingFieldType>
                         name="lastname"
                         label="Last name"
                         rules={[
@@ -78,7 +84,7 @@ export function OnboardingPage() {
                     >
                         <Input />
                     </Form.Item>
-                    <Form.Item name="email" label="Email">
+                    <Form.Item<OnboardingFieldType> name="email" label="Email">
                         <Input type="email" disabled />
                     </Form.Item>
                     <Form.Item>
