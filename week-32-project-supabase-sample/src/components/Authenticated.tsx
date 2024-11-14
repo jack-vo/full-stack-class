@@ -1,9 +1,8 @@
 import { PropsWithChildren, useEffect, useState } from 'react';
 import supabase from '../utils/supabase.ts';
-import { Session } from '@supabase/supabase-js';
 import { useNavigate } from 'react-router-dom';
+import { Spin } from 'antd';
 
-let isLoadingUserInfo = false;
 const authenticatedUserInfo = {
     user: null,
 };
@@ -12,50 +11,58 @@ type AuthenticatedProps = PropsWithChildren & {
     redirectTo?: string;
 };
 
+export async function signOutCurrentUser() {
+    authenticatedUserInfo.user = null;
+    await supabase.auth.signOut();
+}
+
+export function validateUserRecord(userId: string) {
+    return new Promise((resolve) => {
+        if (authenticatedUserInfo.user) {
+            resolve(authenticatedUserInfo.user);
+        }
+
+        // check if we have load the user information or not
+        // if not let's load the user info
+        if (!authenticatedUserInfo.user) {
+            // Load user information
+            supabase
+                .rpc('get_user', {
+                    user_id: userId,
+                })
+                .then(({ data }) => {
+                    console.log(data);
+
+                    authenticatedUserInfo.user = data;
+                    resolve(authenticatedUserInfo.user);
+                });
+        }
+    });
+}
+
 export function Authenticated(props: AuthenticatedProps) {
     const { redirectTo } = props;
-    const [session, setSession] = useState<Session | null>(null);
+    const [validUser, setValidUser] = useState(false);
+    const [loadingUserInfo, setLoadingUserInfo] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
-        supabase.auth.getSession().then(({ data: { session } }) => {
-            setSession(session);
-        });
-
         const {
             data: { subscription },
         } = supabase.auth.onAuthStateChange((_event, session) => {
-            setSession(session);
+            setValidUser(!!session?.user);
 
             if (session) {
-                // check if we have load the user information or not
-                // if not let's load the user info
-                if (!authenticatedUserInfo.user && !isLoadingUserInfo) {
-                    isLoadingUserInfo = true;
-
-                    // Load user information
-                    const userId = session.user.id;
-
-                    try {
-                        supabase
-                            .rpc('get_user', {
-                                user_id: userId,
-                            })
-                            .then(({ data }) => {
-                                console.log(data);
-
-                                isLoadingUserInfo = false;
-                                authenticatedUserInfo.user = data;
-
-                                if (!authenticatedUserInfo.user) {
-                                    // User info is not found
-                                    // Let's redirect them to the onboarding page
-                                    navigate('/onboarding');
-                                }
-                            });
-                    } catch (error) {
-                        console.log(error);
-                    }
+                if (!loadingUserInfo) {
+                    validateUserRecord(session.user.id).then((user) => {
+                        // User info is not found
+                        // Let's redirect them to the onboarding page
+                        if (!user) {
+                            navigate('/onboarding');
+                        }
+                        setLoadingUserInfo(false);
+                    });
+                    setLoadingUserInfo(true);
                 }
             } else {
                 authenticatedUserInfo.user = null;
@@ -67,14 +74,14 @@ export function Authenticated(props: AuthenticatedProps) {
         });
 
         return () => subscription.unsubscribe();
-    }, [session, isLoadingUserInfo]);
+    }, [validUser, loadingUserInfo]);
 
-    if (!session) {
+    if (!validUser) {
         return <div>Unauthorized - redirecting...</div>;
     }
 
-    if (isLoadingUserInfo) {
-        return <div>Loading...</div>;
+    if (loadingUserInfo) {
+        return <Spin spinning fullscreen />;
     }
 
     return props.children;
