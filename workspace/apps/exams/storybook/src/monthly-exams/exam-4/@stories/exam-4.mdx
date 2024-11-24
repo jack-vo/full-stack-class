@@ -1,0 +1,73 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+<Meta title="Monthly Exams / Exam 4" />
+
+## Exam 4 - Instructions
+- Log into your Supabase account
+- Use the project `fullstack-learning` for this exam
+- If the project is paused, unpause it. If the project is deactivated, create a new one by following the instructions in `Week 32 - Database and Supabase`
+- Create an empty text file on your local machine named `exam-4.txt`
+
+## Submission
+- You will be required to write down the queries you used to solve any exam's task that require you to write SQL queries. For example
+```sql
+-- 2. Insert Sample Data using SQL queries
+INSERT INTO users (name, email) VALUES ('Alice', 'alice@example.com');
+
+-- 3. Retrieve All `posts` with their corresponding `users` information ...
+
+-- 4. Find Comments on a Specific Post ...
+```
+- Directly send me the `exam-4.txt` file via Messenger or Email
+
+## Exam tasks & Score Criteria
+### 1. **Create Tables (no SQL required)**:
+- Design and create three tables: `users`, `posts`, and `comments`.
+- `users`:
+    - id (Primary Key)
+    - name (Text)
+    - email (Unique, Text)
+- `posts`:
+    - id (Primary Key)
+    - title (Text)
+    - content (Text)
+    - user_id (Foreign Key referencing users(id))
+- `comments`:
+    - id (Primary Key)
+    - content (Text)
+    - post_id (Foreign Key referencing posts(id))
+    - user_id (Foreign Key referencing users(id))
+### 2. **Insert Sample Data using SQL queries** (write the queries in `exam-4.txt`):
+- Write query to add at least:
+    - 3 users (For example: Alice, Bob, Charlie)
+    - 5 posts (distributed among the users) (For example: Post 1, Post 2, Post 3, Post 4, Post 5 ... linked to different users)
+    - 8 comments (linked to posts and users) (For example: Comment 1, Comment 2, Comment 3 ... linked to different posts and users)
+
+### 3. Retrieve All `posts` with their corresponding `users` information (write the query in `exam-4.txt`):
+- Write a query to fetch all posts along with the name of the user who authored each post. For example, the result may look like:
+- ```sql
+  | post_id | post_title | post_content | author_id | author_name |
+  |---------|------------|--------------|-----------|-------------|
+  | 1       | Post 1     | Content 1    | 1         | Alice       |
+  | 2       | Post 2     | Content 2    | 3         | Bob         |
+  | 3       | Post 3     | Content 3    | 1         | Alice       |
+  ```
+### 4. Find Comments on a Specific Post (write the query in `exam-4.txt`):
+- Write a query to retrieve all comments for a post with the title `"Post 3"`, including the name of the commenter.
+- ```sql
+  | post_id | post_title | post_content | comment_id| comment_content | author_id | author_name |
+  |---------|------------|--------------|-----------|-----------------|-----------|-------------|
+  | 3       | Post 3     | Content 3    | 4         | Comment 4       | 3         | Alice       |
+  | 3       | Post 3     | Content 3    | 5         | Comment 5       | 3         | Alice       |
+  | 3       | Post 3     | Content 3    | 7         | Comment 7       | 3         | Alice       |
+  ```
+### 5. Create PostgreSQL Functions (write the functions in `exam-4.txt`):
+- Write a function named `upsert_post` that takes a post's `id`, `title`, and `content` as arguments and either inserts a new post or updates an existing post.
+- Write a function named `get_post_comments` that takes a post's `id` as an argument and returns the post information and all comments on that post.
+### 6. Challenge tasks - you can use Open AI or any other tool to help you with these tasks (write the queries in `exam-4.txt`):
+- Write a query to count how many posts each user has authored.
+- Write a query to find the post with the highest number of comments, including the post title and the comment count.
+- Write a query to find the user who has the most comments on their posts.
+- Write a query to find the user who has the most posts.
+- Write a query to find the user who has the most comments on posts they did not author.
+- **Hints** - You will need to use `COUNT`, `GROUP BY` and `ORDER BY`
